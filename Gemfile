@@ -33,6 +33,8 @@ gem 'annotate', '2.5.0'
 
 gem 'high_voltage'
 
+gem 'omniauth-github', :git => 'git://github.com/intridea/omniauth-github.git'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

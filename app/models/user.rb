@@ -10,14 +10,5 @@
 #  updated_at :datetime
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  provider: 
-  uid: 
-  name: MyString
-
-two:
-  provider: 
-  uid: 
-  name: MyString
+class User < ActiveRecord::Base
+end

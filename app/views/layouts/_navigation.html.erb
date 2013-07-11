@@ -3,8 +3,10 @@
     <div class="container">
       <nav>
         <ul class="nav pull-right">
+          <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "About", page_path('about') %></li>
           <li><%= link_to "Post a Resource", new_resource_path %></li> 
+          <li><%= link_to "Sign in with Github", "/auth/github" %></li>
         </ul>
       </nav>
     </div>
