@@ -8,6 +8,7 @@
 #  name       :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  auth_hash  :Hash
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

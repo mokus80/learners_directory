@@ -7,7 +7,9 @@ LearnersDirectory::Application.routes.draw do
   resources :sessions, only: [:new]
 
   # match '/signin', to: 'sessions#new', via: 'get'
-  get '/auth/:provider/callback', to: 'sessions#create'
+    get '/auth/:provider/callback', to: 'sessions#create'
+
+    match '/signout', to: 'sessions#destroy', via: 'delete'
 
   #get   '/login', :to => 'sessions#new', :as => :login
   #match '/auth/:provider/callback', :to => 'sessions#create'
