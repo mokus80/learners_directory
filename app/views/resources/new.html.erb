@@ -1,5 +1,9 @@
 <h1>Post a resource</h1>
 
-<%= render 'form' %>
+<% if signed_in? %>
+	<%= render 'form' %>
+<% else %>
+	<%= link_to "Please sign in with Github", "/auth/github" %>
+<% end %>
 
 <%= link_to 'Back', resources_path %>
