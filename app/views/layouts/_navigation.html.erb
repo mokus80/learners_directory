@@ -6,10 +6,11 @@
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "About", page_path('about') %></li>
           <li><%= link_to "Post a Resource", new_resource_path %></li> 
-          <% if signed_in? %>
-            <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+          <% if current_user %>
+              <li>Welcome <%= current_user.name %>!</li>
+              <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
           <% else %>
-            <li><%= link_to "Sign in with Github", "/auth/github" %></li>
+              <li><%= link_to "Sign in with Github", "/auth/github" %></li>
           <% end %>
         </ul>
       </nav>

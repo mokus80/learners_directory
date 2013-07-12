@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
  def create
-    user = User.find_or_create_by_auth_hash(auth_hash)
+    user = User.find_or_create_by(:email => auth_hash[:info][:email])
     #self.current_user = user
     if user.nil?
     	redirect_to '/auth/:provider/callback'
@@ -19,6 +19,7 @@ class SessionsController < ApplicationController
   protected
 
   def auth_hash
+    #logger.info request.env['omniauth.auth']
     request.env['omniauth.auth']
   end
 

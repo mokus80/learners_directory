@@ -1,5 +1,6 @@
-<h1>Resources</h1>
-  
+<h1>Welcome to the RailsApps Learners Directory</h1>
+<h4>Here you find resources to learn Ruby on Rails.</h4>
+  <br>
   <tbody>
     <% @resources.each do |resource| %>
       <div id="resource-box">
@@ -7,10 +8,11 @@
           <h2><%= resource.title %><h2>
           <p><a href="<%= resource.link %>" target="_blank"><%= resource.link %></a></p>
           <p><%= resource.summary %></p>
+          <p>Posted at <%= resource.created_at %></p>
           <p>Rating goes here</p>
         </div>
-        <div id="rate-button">
-        <p>rate</p>
+        <div >
+        <a href="#" class="btn btn-info btn-mini">Rate Resource <i class="icon-star"></i></a>
         </div>
         <br style="clear:both;"/>
       </div>
@@ -21,3 +23,4 @@
 <br>
 
 <%= link_to 'New Resource', new_resource_path %>
+
