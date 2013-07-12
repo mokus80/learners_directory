@@ -44,11 +44,11 @@ class ServicesController < ApplicationController
       end
     end
 
-    redirect_to services_path
+    redirect_to resources_path
   end
 
   def destroy
-    service = current_user.services.find(params[:id])
+    service = current_user.services.find(params[:uid])
     if service.respond_to?(:destroy) and service.destroy
       flash[:notice] = I18n.t('notifications.provider_unlinked', provider: service.provider)
       redirect_to redirect_path
