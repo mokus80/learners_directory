@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130711144349) do
+ActiveRecord::Schema.define(version: 20130712134213) do
 
   create_table "resources", force: true do |t|
     t.string   "title"
@@ -21,7 +21,19 @@ ActiveRecord::Schema.define(version: 20130711144349) do
     t.datetime "updated_at"
   end
 
-# Could not dump table "users" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "services", force: true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "services", ["user_id"], name: "index_services_on_user_id"
+
+  create_table "users", force: true do |t|
+    t.string "name"
+    t.string "email"
+  end
 
 end
