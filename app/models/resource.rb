@@ -11,4 +11,15 @@
 #
 
 class Resource < ActiveRecord::Base
+	has_many :ratings
+	belongs_to :user
+
+	def average_rating
+		@value = 0
+		self.ratings.each do |rating|
+			@value = @value + rating.value
+		end
+		@total = self.ratings.size
+		@value.to_f / @total.to_f
+	end
 end

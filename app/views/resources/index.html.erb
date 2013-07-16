@@ -9,13 +9,12 @@
           <p><a href="<%= resource.link %>" target="_blank"><%= resource.link %></a></p>
           <p><%= resource.summary %></p>
           <p>Posted at <%= resource.created_at %></p>
-          <p>Rating goes here</p>
+          <p><%= resource.average_rating %></p>
         </div>
         <div >
         <a href="#" class="btn btn-info btn-mini">Rate Resource <i class="icon-star"></i></a>
         </div>
-        <div input type="hidden" class="rating-box">
-        </div>
+        <%= render 'ratings/form' %>
         <br style="clear:both;"/>
       </div>
       <br>
