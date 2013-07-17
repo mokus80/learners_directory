@@ -14,7 +14,7 @@
         <div >
         <a href="#" class="btn btn-info btn-mini">Rate Resource <i class="icon-star"></i></a>
         </div>
-        <%= render 'ratings/form' %>
+        <%= render :partial => 'ratings/form', :locals => {:resource_id => resource.id} %>
         <br style="clear:both;"/>
       </div>
       <br>

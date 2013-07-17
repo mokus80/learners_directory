@@ -4,6 +4,7 @@ class ResourcesController < ApplicationController
   # GET /resources
   # GET /resources.json
   def index
+    logger.info "in resources#index"
     @resources = Resource.all
   end
 
