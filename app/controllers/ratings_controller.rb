@@ -1,6 +1,6 @@
 class RatingsController < ApplicationController
 	def create
-		@resource = Resource.find(params[:resource_id])
+		@resource = Resource.find_by(params[:resource_id])
 		if current_user.id == @resource.id
 			redirect_to resource_path(@resource), :alert => "You cannot rate your own resource"
 		else
@@ -17,7 +17,7 @@ class RatingsController < ApplicationController
 	end
 
 	def update
-		@resource = Resource.params[:resource_id])
+		@resource = Resource.find_by(params[:resource_id])
 		if current_user.id == @resource.id
 			redirect_to resource_path(@resource), :alert => "You cannot rate your own resource"
 		else

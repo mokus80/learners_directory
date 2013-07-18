@@ -22,4 +22,5 @@ class Resource < ActiveRecord::Base
 		@total = self.ratings.size
 		@value.to_f / @total.to_f
 	end
+
 end

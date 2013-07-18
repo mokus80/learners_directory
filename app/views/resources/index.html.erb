@@ -10,11 +10,29 @@
           <p><%= resource.summary %></p>
           <p>Posted at <%= resource.created_at %></p>
           <p><%= resource.average_rating %></p>
+          <p><%= current_user_rating %></p>
         </div>
         <div >
         <a href="#" class="btn btn-info btn-mini">Rate Resource <i class="icon-star"></i></a>
         </div>
-        <%= render :partial => 'ratings/form', :locals => {:resource_id => resource.id} %>
+          <%= form_for (rating_ballot(resource.id)) do |f| %>
+            
+          <%= f.radio_button(:value, 1) %>
+          <%= f.label(:value_rating, "1") %>
+          <%= f.radio_button(:value, 2) %>
+          <%= f.label(:value_rating, "2") %>
+          <%= f.radio_button(:value, 3) %>
+          <%= f.label(:value_rating, "3") %>
+          <%= f.radio_button(:value, 4) %>
+          <%= f.label(:value_rating, "4") %>
+          <%= f.radio_button(:value, 5) %>
+          <%= f.label(:value_rating, "5") %>
+
+
+          <%= f.submit %>
+
+          <% end %>
+
         <br style="clear:both;"/>
       </div>
       <br>
