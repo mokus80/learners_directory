@@ -1,6 +1,7 @@
 LearnersDirectory::Application.routes.draw do
   
   resources :resources
+
   resources :ratings
 
   root :to => redirect('/resources')

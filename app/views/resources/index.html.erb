@@ -9,8 +9,8 @@
           <p><a href="<%= resource.link %>" target="_blank"><%= resource.link %></a></p>
           <p><%= resource.summary %></p>
           <p>Posted at <%= resource.created_at %></p>
-          <p><%= resource.average_rating %></p>
-          <p><%= current_user_rating %></p>
+          <p><%= resource.average_rating(resource.id) %></p>
+          <p><%= current_user_rating(resource.id) %></p>
         </div>
         <div >
         <a href="#" class="btn btn-info btn-mini">Rate Resource <i class="icon-star"></i></a>
@@ -28,7 +28,8 @@
           <%= f.radio_button(:value, 5) %>
           <%= f.label(:value_rating, "5") %>
 
-
+          <%= f.hidden_field(:resource_id) %>
+          <%= f.hidden_field(:user_id) %>
           <%= f.submit %>
 
           <% end %>

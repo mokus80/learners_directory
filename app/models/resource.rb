@@ -23,4 +23,18 @@ class Resource < ActiveRecord::Base
 		@value.to_f / @total.to_f
 	end
 
+	# def average_rating(r_id)
+	# 	@value = 0
+	# 	ratings.each do |rating|
+	# 		if rating.resource_id == r_id
+	# 			@value = @value + rating.value
+	# 		else
+	# 			@value
+	# 		end
+	# 	end
+	# 	@total = ratings.size
+	# 	@value.to_f / @total.to_f
+	# end
+
+
 end
