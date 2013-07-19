@@ -1,5 +1,6 @@
 module RatingsHelper
 	def rating_ballot(r_id)
+		
 		if @rating = current_user.ratings.find_by_resource_id(r_id)
 			@rating
 		else

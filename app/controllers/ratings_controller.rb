@@ -18,9 +18,6 @@ class RatingsController < ApplicationController
 
 	def create
 		@rating = Rating.new ratings_params
-		@resource = Resource.find_by(params[:resource_id])
-		@rating.resource_id = @resource.id
-		@rating.user_id = current_user.id
 		if @rating.save 
 			logger.info "in create"
 		else
@@ -49,8 +46,12 @@ class RatingsController < ApplicationController
 	# end
 
 	def update
-		@resource = Resource.find_by(params[:resource_id])
-		@rating = current_user.ratings.find_by_resource_id(@resource.id)
+		@rating = Rating.find(params[:id])
+		if @rating.update(ratings_params)
+			logger.info "rating updated"
+		else
+			logger.info "rating update failed"
+		end
 		respond_to do |format|
 			format.html { redirect_to resource_path(@resource), :notice => "Your rating has been updated" }
 			format.js

@@ -9,7 +9,7 @@
           <p><a href="<%= resource.link %>" target="_blank"><%= resource.link %></a></p>
           <p><%= resource.summary %></p>
           <p>Posted at <%= resource.created_at %></p>
-          <p><%= resource.average_rating(resource.id) %></p>
+          <p><%= resource.average_rating %></p>
           <p><%= current_user_rating(resource.id) %></p>
         </div>
         <div >
