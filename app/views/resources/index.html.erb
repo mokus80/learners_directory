@@ -10,11 +10,14 @@
           <p><%= resource.summary %></p>
           <p>Posted at <%= resource.created_at %></p>
           <p><%= resource.average_rating %></p>
-          <p><%= current_user_rating(resource.id) %></p>
         </div>
         <div >
         <a href="#" class="btn btn-info btn-mini">Rate Resource <i class="icon-star"></i></a>
         </div>
+        <% if current_user %>
+          <br>
+          <p>Your rating: <%= current_user_rating(resource.id) %></p>
+
           <%= form_for (rating_ballot(resource.id)) do |f| %>
             
           <%= f.radio_button(:value, 1) %>
@@ -34,6 +37,12 @@
 
           <% end %>
 
+          <% else %>
+          <br>
+          <p>In order to rate a resource please sign up with your Github account</p>
+
+          <% end %> 
+
         <br style="clear:both;"/>
       </div>
       <br>
@@ -43,4 +52,5 @@
 <br>
 
 <%= link_to 'New Resource', new_resource_path %>
+        
 

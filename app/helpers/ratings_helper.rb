@@ -12,7 +12,7 @@ module RatingsHelper
 		if @rating = current_user.ratings.find_by_resource_id(r_id)
 			@rating.value
 		else
-			"N/A"
+			"Rate this resource"
 		end
 	end
 end
