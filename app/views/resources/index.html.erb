@@ -4,49 +4,53 @@
   <tbody>
     <% @resources.each do |resource| %>
       <div class="resource-box">
-        <div class="content-box">
+        <div class="text-section">
           <h2><%= resource.title %><h2>
           <p><a href="<%= resource.link %>" target="_blank"><%= resource.link %></a></p>
           <p><%= resource.summary %></p>
           <p>Posted at <%= resource.created_at %></p>
           <p>Average Rating: <%= resource.average_rating %></p>
         </div>
-        <div >
-        <button type="button" class="btn btn-info btn-mini rating-button">Rate Resource <i class="icon-star"></i></button>
-        </div>
+
+        <div class="rating-section">
+          <div >
+             <button type="button" class="btn btn-info btn-mini rating-button">Rate Resource <i class="icon-star"></i></button>
+          </div>
         <% if current_user %>
-        <div class="rating-box">
-          <p>Your rating: <%= current_user_rating(resource.id) %></p>
+          <div class="rating-box">
+            <br>
+            <p>Your rating: <%= current_user_rating(resource.id) %></p>
 
-          <%= form_for (rating_ballot(resource.id)) do |f| %>
+            <%= form_for (rating_ballot(resource.id)) do |f| %>
             
-            <%= f.radio_button(:value, 1) %>
-            <%= f.label(:value_rating, "1") %>
-            <%= f.radio_button(:value, 2) %>
-            <%= f.label(:value_rating, "2") %>
-            <%= f.radio_button(:value, 3) %>
-            <%= f.label(:value_rating, "3") %>
-            <%= f.radio_button(:value, 4) %>
-            <%= f.label(:value_rating, "4") %>
-            <%= f.radio_button(:value, 5) %>
-            <%= f.label(:value_rating, "5") %>
+              <%= f.radio_button(:value, 1) %>
+              <%= f.label(:value_rating, "1") %>
+              <%= f.radio_button(:value, 2) %>
+              <%= f.label(:value_rating, "2") %>
+              <%= f.radio_button(:value, 3) %>
+              <%= f.label(:value_rating, "3") %>
+              <%= f.radio_button(:value, 4) %>
+              <%= f.label(:value_rating, "4") %>
+              <%= f.radio_button(:value, 5) %>
+              <%= f.label(:value_rating, "5") %>
 
-            <%= f.hidden_field(:resource_id) %>
-            <%= f.hidden_field(:user_id) %>
-            <%= f.submit %>
+              <%= f.hidden_field(:resource_id) %>
+              <%= f.hidden_field(:user_id) %>
+              <%= f.submit %>
 
-          <% end %>
-        </div>
+            <% end %>
+          </div>
 
-          <% else %>
+        <% else %>
           <br>
           <p>In order to rate a resource please sign up with your Github account</p>
 
-          <% end %> 
+        <% end %> 
 
-        <br style="clear:both;"/>
-      </div>
-      <br>
+        </div>
+          <br style="clear:both;"/>
+    </div>
+    <br>
     <% end %>
   </tbody>
 

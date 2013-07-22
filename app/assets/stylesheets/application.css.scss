@@ -29,20 +29,22 @@
 	border-radius: 5px;
 	/*border: 2.5px solid;*/
 	padding: 20px;
+	border-color: black;
 }
 
-.content-box {	
-	width: 80%; 
+.text-section {	
+	width: 70%; 
 	float:left;
 }
 
 .rating-button {
 }
 
+.rating-section {
+	float: right;
+}
 .rating-box {
 	visibility: hidden;
-	width: 200px;
-	height: 100px;
 }
 
 a {
