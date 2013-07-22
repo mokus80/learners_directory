@@ -29,7 +29,13 @@ ActiveRecord::Schema.define(version: 20130716130834) do
     t.datetime "updated_at"
   end
 
-# Could not dump table "users" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "users", force: true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "email"
+  end
 
 end
