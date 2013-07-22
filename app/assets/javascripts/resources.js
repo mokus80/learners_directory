@@ -1,6 +1,6 @@
 $(document).ready(function() {
-	$('#btn btn-info btn-mini').click(function() {
-		$('#rating-box').show();
+	$('.rating-button').click(function() {
+		$(this).closest('.resource-box').find('.rating-box').css("visibility", "visible");
 	});
 }); 
 
