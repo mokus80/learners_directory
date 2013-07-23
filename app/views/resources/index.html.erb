@@ -1,15 +1,16 @@
-<h1>Welcome to the RailsApps Learners Directory</h1>
+<h2>Welcome to the RailsApps Learners Directory</h2>
 <h4>Here you find resources to learn Ruby on Rails.</h4>
   <br>
   <tbody>
     <% @resources.each do |resource| %>
       <div class="resource-box">
         <div class="text-section">
-          <h2><%= resource.title %><h2>
+          <h4><%= resource.title %></h4>
           <p><a href="<%= resource.link %>" target="_blank"><%= resource.link %></a></p>
           <p><%= resource.summary %></p>
           <p>Posted at <%= resource.created_at %></p>
           <p>Average Rating: <%= resource.average_rating %></p>
+          <p>Created by: <%= resource.user.name %></p>
         </div>
 
         <div class="rating-section">

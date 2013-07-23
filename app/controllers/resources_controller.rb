@@ -26,7 +26,7 @@ class ResourcesController < ApplicationController
   # POST /resources.json
   def create
     @resource = Resource.new(resource_params)
-
+    @resource.user = current_user
     respond_to do |format|
       if @resource.save
         format.html { redirect_to @resource, notice: 'Resource was successfully posted.' }
@@ -70,6 +70,6 @@ class ResourcesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def resource_params
-      params.require(:resource).permit(:title, :summary, :link)
+      params.require(:resource).permit(:title, :summary, :link, :user_id)
     end
 end

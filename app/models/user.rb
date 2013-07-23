@@ -8,10 +8,10 @@
 #  name       :string(255)
 #  created_at :datetime
 #  updated_at :datetime
-#  auth_hash  :Hash
 #  email      :string(255)
 #
 
 class User < ActiveRecord::Base
 	has_many :ratings
+	has_many :resources
 end
