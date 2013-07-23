@@ -25,5 +25,9 @@ module SessionsHelper
       self.current_user = nil
       session[:user_id] = nil
     end
+
+    def correct_user
+      render text: "Access denied", status: :unauthorized unless current_user?(@resource.user)
+  end
 	
 end

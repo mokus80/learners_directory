@@ -9,6 +9,7 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  email      :string(255)
+#  admin      :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base

@@ -9,6 +9,7 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  email      :string(255)
+#  admin      :boolean          default(FALSE)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
