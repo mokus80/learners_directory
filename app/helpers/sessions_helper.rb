@@ -26,8 +26,20 @@ module SessionsHelper
       session[:user_id] = nil
     end
 
-    def correct_user
-      render text: "Access denied", status: :unauthorized unless current_user?(@resource.user)
+    def ensure_correct_user
+      render text: "Access denied", status: :unauthorized unless current_user?(@resource.user) || @current_user.admin?
+    end
+
+    def correct_user?(resource)
+      signed_in? && (current_user?(resource.user) || @current_user.admin?)
+    end
+
+    # def resource_owner(resource)
+    #   current_user? == @resource.user
+    # end
+
+    def admin
+      current_user == @user.admin
     end
 
     def gravatar_for(user)

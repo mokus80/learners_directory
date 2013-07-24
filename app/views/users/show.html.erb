@@ -7,6 +7,12 @@
       <h1>
         <%#= gravatar_for(@user) %>
         <%= @user.name %>
+        <%= @user.email %>
+        <% if @user.admin == true %>
+        	<p>Admin</p>
+        <% else %>
+        	<p>User</p>
+        <% end %>
       </h1>
       <p><%= "#{@user.name} has posted #{@user.resources.count} resources" %></p>
     </section>

@@ -11,6 +11,11 @@
           <p>Posted at <%= resource.created_at %></p>
           <p>Average Rating: <%= resource.average_rating %></p>
           <p>Posted by: <%= link_to "#{resource.user.name}", user_path(resource.user) %></p>
+          
+          <% if correct_user?(resource) %>
+            <p><%= link_to "Delete resource", users_path %></p>
+            <p><%= link_to "Edit resource", users_path %></p>
+          <% end %>
 
         </div>
 
