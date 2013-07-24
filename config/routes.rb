@@ -4,9 +4,12 @@ LearnersDirectory::Application.routes.draw do
 
   resources :ratings
 
+  resources :users
+
+
   root :to => redirect('/resources')
 
-  resources :sessions, only: [:new]
+  resources :sessions, only: [:new, :show]
 
   # match '/signin', to: 'sessions#new', via: 'get'
     get '/auth/:provider/callback', to: 'sessions#create'

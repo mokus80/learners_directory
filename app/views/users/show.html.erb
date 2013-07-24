@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<% provide(@user.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%#= gravatar_for(@user) %>
+        <%= @user.name %>
+      </h1>
+      <p><%= "#{@user.name} has posted #{@user.resources.count} resources" %></p>
+    </section>
+  </aside>
+</div>
+
+
+<%= link_to 'Resources', resources_path %>

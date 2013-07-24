@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
 
+
  def create
     user = User.find_or_create_by(:email => auth_hash[:info][:email], :name => auth_hash[:info][:name])
     if user.nil?
@@ -9,6 +10,7 @@ class SessionsController < ApplicationController
     	redirect_to root_path, :notice => "Signed in!"
  	end
  end
+
 
  def destroy
  	sign_out
