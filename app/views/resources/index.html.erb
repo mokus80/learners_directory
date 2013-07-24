@@ -13,8 +13,8 @@
           <p>Posted by: <%= link_to "#{resource.user.name}", user_path(resource.user) %></p>
           
           <% if correct_user?(resource) %>
-            <p><%= link_to "Delete resource", users_path %></p>
-            <p><%= link_to "Edit resource", users_path %></p>
+            <p><%= link_to "Delete resource", resource_path(resource), :method => :delete, :class => 'action' %></p>
+            <p><%= link_to "Edit resource", edit_resource_path(resource) %></p>
           <% end %>
 
         </div>
