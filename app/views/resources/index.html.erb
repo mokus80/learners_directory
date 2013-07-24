@@ -10,7 +10,7 @@
           <p><%= resource.summary %></p>
           <p>Posted at <%= resource.created_at %></p>
           <p>Average Rating: <%= resource.average_rating %></p>
-          <p>Posted by: <%= resource.user.name %></p>
+          <p>Posted by: <%= link_to "#{resource.user.name}", user_path(resource.user) %></p>
 
         </div>
 
