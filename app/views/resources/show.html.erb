@@ -15,6 +15,10 @@
   <%= @resource.link %>
 </p>
 
+<p>
+<%= @resource.comments %>
+</p>
+
 <h2>Comments</h2>
 
 <%= form_for([@resource, @resource.comments.build]) do |f| %>

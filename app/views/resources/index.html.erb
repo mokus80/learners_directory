@@ -5,12 +5,18 @@
     <% @resources.each do |resource| %>
       <div class="resource-box">
         <div class="text-section">
-          <h4><%= link_to "#{resource.title}", resources_path(resource.id) %></h4>
+          <h4><%= link_to "#{resource.title}", resource_path(resource.id) %></h4>
           <p><a href="<%= resource.link %>" target="_blank"><%= resource.link %></a></p>
           <p><%= resource.summary %></p>
           <p>Posted at <%= resource.created_at %></p>
           <p>Average Rating: <%= resource.average_rating %></p>
           <p>Posted by: <%= link_to "#{resource.user.name}", user_path(resource.user) %></p>
+          <% if resource.comments.count == 1 %>
+          <p>This resource has <%= resource.comments.count %> comment</p>
+          <% else %>
+          <p>This resource has <%= resource.comments.count %> comments</p>
+          <% end %>
+
           
           <% if correct_user?(resource) %>
             <p><%= link_to "Delete resource", resource_path(resource), :method => :delete, :class => 'action' %></p>
