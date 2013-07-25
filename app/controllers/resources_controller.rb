@@ -9,11 +9,11 @@ class ResourcesController < ApplicationController
     @resources = Resource.all
   end
 
-  # def comment
-  #  Resource.find(params[:id]).comments.create(params[:comment])
-  #  flash[:notice] = "Added your comment"
-  #  redirect_to :action => "show", :id => params[:id]
-  # end
+  def comment
+   Resource.find(params[:id]).comments.create(params[:comment])
+   flash[:notice] = "Added your comment"
+   redirect_to :action => "show", :id => params[:id]
+  end
 
   # GET /resources/1
   # GET /resources/1.json

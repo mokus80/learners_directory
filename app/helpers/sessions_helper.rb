@@ -18,7 +18,7 @@ module SessionsHelper
   	end
 
   	def signed_in?
-		!current_user.nil?
+		  !current_user.nil?
 	  end
 
     def sign_out
@@ -34,9 +34,9 @@ module SessionsHelper
       signed_in? && (current_user?(resource.user) || @current_user.admin?)
     end
 
-    # def resource_owner(resource)
-    #   current_user? == @resource.user
-    # end
+    def resource_owner(resource)
+      current_user? == @resource.user
+    end
 
     def admin
       current_user == @user.admin

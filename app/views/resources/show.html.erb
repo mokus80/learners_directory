@@ -14,12 +14,26 @@
   <strong>Link:</strong>
   <%= @resource.link %>
 </p>
+<br>
 
-<p>
-<%= @resource.comments %>
-</p>
+ <%#= render :partial => @resource.comments %>
 
-<h2>Comments</h2>
+
+<h3>Comments</h3>
+   <% for comment in @resource.comments %>
+   <br>
+      <h5>
+      <%= comment.body %>
+      </h5>
+      <p>
+      <%= "Comment posted by: #{comment.user_id}" %>
+      </p>
+      <br>
+      
+<% end %>
+<br><br>
+
+<h2>Post a Comment</h2>
 
 <%= form_for([@resource, @resource.comments.build]) do |f| %>
  
