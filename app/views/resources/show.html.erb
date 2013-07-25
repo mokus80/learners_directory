@@ -26,14 +26,14 @@
       <%= comment.body %>
       </h5>
       <p>
-      <%= "Comment posted by: #{comment.user_id}" %>
+      <%= "Comment posted by: #{@resource.user.name}" %>
       </p>
       <br>
       
 <% end %>
 <br><br>
 
-<h2>Post a Comment</h2>
+<h3>Post a Comment</h3>
 
 <%= form_for([@resource, @resource.comments.build]) do |f| %>
  

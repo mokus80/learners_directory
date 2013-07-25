@@ -1,12 +1,13 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-  before_filter :current_user, only: [:new, :edit, :update, :destroy]
+  #before_filter :current_user, only: [:new, :edit, :update, :destroy]
 
 
   # GET /comments
   # GET /comments.json
   def index
     @comments = Comment.all
+    @resource.user = current_user
   end
 
   # GET /comments/1

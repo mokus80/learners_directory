@@ -12,10 +12,11 @@
           <p>Average Rating: <%= resource.average_rating %></p>
           <p>Posted by: <%= link_to "#{resource.user.name}", user_path(resource.user) %></p>
           <% if resource.comments.count == 1 %>
-          <p>This resource has <%= resource.comments.count %> comment</p>
+          <p>This resource has <%= link_to "#{resource.comments.count} comment", resource_path(resource.id) %></p>
           <% else %>
-          <p>This resource has <%= resource.comments.count %> comments</p>
+          <p>This resource has <%= link_to "#{resource.comments.count} comments", resource_path(resource.id) %></p>
           <% end %>
+
 
           
           <% if correct_user?(resource) %>
