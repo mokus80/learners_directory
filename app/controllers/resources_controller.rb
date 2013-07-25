@@ -1,5 +1,5 @@
 class ResourcesController < ApplicationController
-  before_action :set_resource, only: [:show, :edit, :update, :destroy]
+  before_action :set_resource, only: [:show, :comment, :edit, :update, :destroy]
   before_filter :ensure_correct_user, only: [:edit, :update, :destroy]
 
   # GET /resources
@@ -7,6 +7,12 @@ class ResourcesController < ApplicationController
   def index
     logger.info "in resources#index"
     @resources = Resource.all
+  end
+
+  def comment
+   Resource.find(params[:id]).comments.create(params[:comment])
+   flash[:notice] = "Added your comment"
+   redirect_to :action => "show", :id => params[:id]
   end
 
   # GET /resources/1

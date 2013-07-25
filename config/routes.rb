@@ -1,6 +1,9 @@
 LearnersDirectory::Application.routes.draw do
   
-  resources :resources
+
+  resources :resources do
+    resources :comments
+  end
 
   resources :ratings
 

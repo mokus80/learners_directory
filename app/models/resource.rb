@@ -13,6 +13,7 @@
 
 class Resource < ActiveRecord::Base
 	has_many :ratings
+	has_many :comments
 	belongs_to :user
 
 	def average_rating

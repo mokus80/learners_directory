@@ -5,7 +5,7 @@
     <% @resources.each do |resource| %>
       <div class="resource-box">
         <div class="text-section">
-          <h4><%= resource.title %></h4>
+          <h4><%= link_to "#{resource.title}", resources_path(resource.id) %></h4>
           <p><a href="<%= resource.link %>" target="_blank"><%= resource.link %></a></p>
           <p><%= resource.summary %></p>
           <p>Posted at <%= resource.created_at %></p>
