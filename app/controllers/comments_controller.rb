@@ -23,6 +23,8 @@ class CommentsController < ApplicationController
   # GET /comments/1/edit
   def edit
     @resource = Resource.find(params[:resource_id])
+    # @resource.comment
+    
     # @comment.resource_id = Comment.find(params[:resource_id])
   end
 
@@ -88,6 +90,7 @@ class CommentsController < ApplicationController
     def set_comment
       @comment = Comment.find(params[:id])
     end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
