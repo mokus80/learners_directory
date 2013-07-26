@@ -22,6 +22,7 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
+    @resource = Resource.find(params[:resource_id])
   end
 
   # POST /comments
@@ -68,14 +69,14 @@ class CommentsController < ApplicationController
     end
   end
 
- 
+
 
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to comments_url }
+      format.html { redirect_to resource_url(params[:resource_id]) }
       format.json { head :no_content }
     end
   end

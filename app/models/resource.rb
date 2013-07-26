@@ -13,7 +13,7 @@
 
 class Resource < ActiveRecord::Base
 	has_many :ratings
-	has_many :comments
+	has_many :comments, :dependent => :destroy
 	belongs_to :user
 
 	def average_rating

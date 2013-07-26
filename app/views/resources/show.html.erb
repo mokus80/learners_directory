@@ -16,10 +16,12 @@
 </p>
 <br>
   <% if correct_user?(@resource) %>
-        <p><%= link_to "Delete resource", resource_path(@resource), :method => :delete, :class => 'action' %></p>
-        <p><%= link_to "Edit resource", edit_resource_path(@resource) %></p>
+   <p><%= link_to "Edit resource", edit_resource_path(@resource) %></p>
+    <p><%= link_to "Delete resource", resource_path(@resource), :method => :delete, :class => 'action' %></p>
+       
   <% end %>
   <br>
+
 
  <%#= render :partial => @resource.comments %>
 
@@ -34,12 +36,12 @@
       </p>
       <br>
       <% if correct_user?(comment) %>
-        <p><%= link_to "Delete comment", resource_comment_path(@resource,comment), :method => :delete, :class => 'action' %></p>
         <p><%= link_to "Edit comment", edit_resource_comment_path(@resource,comment) %></p>
+        <p><%= link_to "Delete comment", resource_comment_path(@resource,comment), :method => :delete, :class => 'action' %></p>
       <% end %>
-      
+      <br>
 <% end %>
-<br><br>
+<br>
 
 <h3>Post a Comment</h3>
 
