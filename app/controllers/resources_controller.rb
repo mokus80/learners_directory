@@ -1,6 +1,6 @@
 class ResourcesController < ApplicationController
   before_action :set_resource, only: [:show, :comment, :edit, :update, :destroy]
-  before_filter :ensure_correct_user, only: [:edit, :update, :destroy]
+  before_filter :ensure_correct_user_for_resource, only: [:edit, :update, :destroy]
 
   # GET /resources
   # GET /resources.json
@@ -18,6 +18,8 @@ class ResourcesController < ApplicationController
   # GET /resources/1
   # GET /resources/1.json
   def show
+    @comments = Comment.all
+    @resource.user = current_user
   end
 
   # GET /resources/new
@@ -78,5 +80,9 @@ class ResourcesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def resource_params
       params.require(:resource).permit(:title, :summary, :link, :user_id)
+    end
+
+    def ensure_correct_user_for_resource
+      ensure_correct_user(@resource)
     end
 end

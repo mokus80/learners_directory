@@ -12,4 +12,5 @@
 
 class Comment < ActiveRecord::Base
 	belongs_to :resource, :dependent => :destroy
+	belongs_to :user
 end

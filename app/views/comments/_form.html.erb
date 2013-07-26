@@ -1,29 +1,8 @@
-<%= form_for(:resource, @comment) do |f| %>
-  <% if @comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-
-      <ul>
-      <% @comment.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_for([@resource, @resource.comments.build]) do |f| %>
+ 
   <div class="field">
-    <%= f.label :resource_id %><br>
-    <%= f.number_field :resource_id %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br>
+    <% f.label :body %><br />
     <%= f.text_area :body %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <p><%= f.submit %></p>
 <% end %>

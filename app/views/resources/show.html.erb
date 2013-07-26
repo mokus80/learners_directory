@@ -15,13 +15,17 @@
   <%= @resource.link %>
 </p>
 <br>
+  <% if correct_user?(@resource) %>
+        <p><%= link_to "Delete resource", resource_path(@resource), :method => :delete, :class => 'action' %></p>
+        <p><%= link_to "Edit resource", edit_resource_path(@resource) %></p>
+  <% end %>
+  <br>
 
  <%#= render :partial => @resource.comments %>
 
 
 <h3>Comments</h3>
    <% for comment in @resource.comments %>
-   <br>
       <h5>
       <%= comment.body %>
       </h5>
@@ -29,6 +33,10 @@
       <%= "Comment posted by: #{@resource.user.name}" %>
       </p>
       <br>
+      <% if correct_user?(comment) %>
+        <p><%= link_to "Delete comment", resource_comment_path(@resource,comment), :method => :delete, :class => 'action' %></p>
+        <p><%= link_to "Edit comment", edit_resource_comment_path(@resource,comment) %></p>
+      <% end %>
       
 <% end %>
 <br><br>
@@ -44,5 +52,5 @@
   <p><%= f.submit %></p>
 <% end %>
 
-<%= link_to 'Edit', edit_resource_path(@resource) %> |
+<%= link_to 'Edit', edit_resource_path(@resource) %> 
 <%= link_to 'View all resources', resources_path %>

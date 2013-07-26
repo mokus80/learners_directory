@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-  before_filter :ensure_correct_user, only: [:edit, :update, :destroy]
+  before_filter :ensure_correct_user_for_comment, only: [:edit, :update, :destroy]
 
 
   # GET /comments
@@ -68,6 +68,8 @@ class CommentsController < ApplicationController
     end
   end
 
+ 
+
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
@@ -87,5 +89,9 @@ class CommentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
       params.require(:comment).permit(:resource_id, :user_id, :body)
+    end
+
+    def ensure_correct_user_for_comment
+      ensure_correct_user(@comment)
     end
 end
