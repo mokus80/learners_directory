@@ -45,14 +45,7 @@
 
 <h3>Post a Comment</h3>
 
-<%= form_for([@resource, @resource.comments.build]) do |f| %>
- 
-  <div class="field">
-    <% f.label :body %><br />
-    <%= f.text_area :body %>
-  </div>
-  <p><%= f.submit %></p>
-<% end %>
+<%= render 'comments/form' %>
 
 <%= link_to 'Edit', edit_resource_path(@resource) %> 
 <%= link_to 'View all resources', resources_path %>

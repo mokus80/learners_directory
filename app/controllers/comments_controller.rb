@@ -23,6 +23,7 @@ class CommentsController < ApplicationController
   # GET /comments/1/edit
   def edit
     @resource = Resource.find(params[:resource_id])
+    # @comment.resource_id = Comment.find(params[:resource_id])
   end
 
   # POST /comments
@@ -58,9 +59,10 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
   def update
+    @resource = @comment.resource
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
+        format.html { redirect_to resource_url(params[:resource_id]), notice: 'Comment was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
