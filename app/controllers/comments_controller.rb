@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-  #before_filter :current_user, only: [:new, :edit, :update, :destroy]
+  before_filter :ensure_correct_user, only: [:edit, :update, :destroy]
 
 
   # GET /comments
@@ -30,11 +30,18 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.resource_id = params[:resource_id]
-    @comment.user_id = current_user.id
-    @comment.save
-    respond_to do |format|
+    if signed_in?
+      @comment.user_id = current_user.id
+      @comment.save
+      respond_to do |format|
       format.html { redirect_to resource_path(@resource), :notice => "Your comment has been saved" }
       format.js
+      end
+    else
+      respond_to do |format|
+      format.html { render action: 'new' }
+      format.json { render json: @resource.errors, status: :unprocessable_entity }
+      end
     end
   end
   # if @comment.save
