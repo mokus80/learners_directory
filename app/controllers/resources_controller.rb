@@ -19,7 +19,6 @@ class ResourcesController < ApplicationController
   # GET /resources/1.json
   def show
     @comments = Comment.all
-    @resource.user = current_user
   end
 
   # GET /resources/new
