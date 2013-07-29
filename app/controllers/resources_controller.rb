@@ -9,6 +9,7 @@ class ResourcesController < ApplicationController
     #@resources = Resource.all
     #@sorted_resources = Resource.order("title")
     @sorted_resources = Resource.all.sort_by { |resource| resource.average_rating }
+    @sorted_desc_resources = @sorted_resources.reverse
 
   end
 
