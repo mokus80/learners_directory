@@ -25,7 +25,7 @@ class Resource < ActiveRecord::Base
 			@total = self.ratings.size
 			@value.to_f / @total.to_f
 		else
-			"This resource has not been rated yet."
+			@total = 0
 		end
 	end
 

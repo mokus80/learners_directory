@@ -1,15 +1,21 @@
 <h2>Welcome to the RailsApps Learners Directory</h2>
-<h4>Here you find resources to learn Ruby on Rails.</h4>
+<h4>Here you will find resources to learn Ruby on Rails</h4>
   <br>
   <tbody>
-    <% @resources.each do |resource| %>
+    <% @sorted_resources.each do |resource| %>
       <div class="resource-box">
         <div class="text-section">
           <h4><%= link_to "#{resource.title}", resource_path(resource.id) %></h4>
           <p><a href="<%= resource.link %>" target="_blank"><%= resource.link %></a></p>
           <p><%= resource.summary %></p>
           <p>Posted at <%= resource.created_at %></p>
-          <p>Average Rating: <%= resource.average_rating %></p>
+          <p>Average Rating:
+              <% if resource.average_rating == 0 %>
+                <%= "This resource has not been rated yet" %>
+              <% else %>
+                <%= resource.average_rating %>
+              <% end %></p>
+                 
           <p>Posted by: <%= link_to "#{resource.user.name}", user_path(resource.user) %></p>
           <% if resource.comments.count == 1 %>
           <p>This resource has <%= link_to "#{resource.comments.count} comment", resource_path(resource.id) %></p>
@@ -58,9 +64,7 @@
         <% else %>
           <br>
           <p>In order to rate a resource please sign up with your Github account</p>
-
         <% end %> 
-
         </div>
           <br style="clear:both;"/>
     </div>

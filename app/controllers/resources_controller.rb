@@ -6,7 +6,10 @@ class ResourcesController < ApplicationController
   # GET /resources.json
   def index
     logger.info "in resources#index"
-    @resources = Resource.all
+    #@resources = Resource.all
+    #@sorted_resources = Resource.order("title")
+    @sorted_resources = Resource.all.sort_by { |resource| resource.average_rating }
+
   end
 
   def comment
@@ -68,6 +71,11 @@ class ResourcesController < ApplicationController
       format.html { redirect_to resources_url }
       format.json { head :no_content }
     end
+  end
+
+  def sort_by_rating
+    @resources = Resource.all
+    @resources.sort! { |resource| resource.average_rating }
   end
 
   private
