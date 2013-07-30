@@ -15,6 +15,8 @@ class Resource < ActiveRecord::Base
 	has_many :ratings
 	has_many :comments, :dependent => :destroy
 	belongs_to :user
+	has_many :taggings, :dependent => :destroy
+	has_many :tags, :through => :taggings
 
 	def average_rating
 		if self.ratings.first.nil? == false
@@ -28,5 +30,9 @@ class Resource < ActiveRecord::Base
 			@total = 0
 		end
 	end
+
+	def self.tagged_with(name)
+    Tag.find_by_name!(name).resources
+  end
 
 end
