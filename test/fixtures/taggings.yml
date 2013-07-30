@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: taggings
+#
+#  id          :integer          not null, primary key
+#  tag_id      :integer
+#  resource_id :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tag_id: 
+  resource_id: 
+
+two:
+  tag_id: 
+  resource_id: 
