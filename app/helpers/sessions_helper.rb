@@ -27,7 +27,11 @@ module SessionsHelper
     end
 
     def ensure_correct_user(model)
-      render text: "Access denied", status: :unauthorized unless current_user?(model.user) || @current_user.admin?
+      if signed_in?
+        render text: "Access denied", status: :unauthorized unless current_user?(model.user) || @current_user.admin?
+      else
+        render text: "Access denied", status: :unauthorized
+      end
     end
 
     def correct_user?(model)
