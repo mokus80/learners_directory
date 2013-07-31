@@ -8,7 +8,9 @@
           <h4><%= link_to "#{resource.title}", resource_path(resource.id) %></h4>
           <p><a href="<%= resource.link %>" target="_blank"><%= resource.link %></a></p>
           <p><%= resource.summary %></p>
+          
           <p>Posted at <%= resource.created_at %></p>
+          
           <p>Average Rating:
               <% if resource.average_rating == 0 %>
                 <%= "This resource has not been rated yet" %>
@@ -17,10 +19,17 @@
               <% end %></p>
                  
           <p>Posted by: <%= link_to "#{resource.user.name}", user_path(resource.user) %></p>
+          
           <% if resource.comments.count == 1 %>
-          <p>This resource has <%= link_to "#{resource.comments.count} comment", resource_path(resource.id) %></p>
+            <p>This resource has <%= link_to "#{resource.comments.count} comment", resource_path(resource.id) %></p>
           <% else %>
-          <p>This resource has <%= link_to "#{resource.comments.count} comments", resource_path(resource.id) %></p>
+            <p>This resource has <%= link_to "#{resource.comments.count} comments", resource_path(resource.id) %></p>
+          <% end %>
+
+          <p>List of tags: <%=resource.tags %></p>
+
+          <% resource.tags.each do |tag| %>
+            <% "Tags: #{tag.name}" %>
           <% end %>
           
           <% if correct_user?(resource) %>
