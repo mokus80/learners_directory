@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-	before_filter :current_user, only: [:index, :show]
+	before_filter :current_user, only: [:show]
+  before_action :admin, only: [:index]
   	#before_filter :correct_user, only: [:edit, :update]
 
 	def index

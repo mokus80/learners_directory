@@ -32,7 +32,8 @@
       <%= comment.body %>
       </h5>
       <p>
-      <%= "Comment posted by: #{@resource.user.name}" %>
+      <%= "Comment posted by: " %> 
+      <%= link_to "#{comment.user.name}", user_path(comment.user)  %>
       </p>
       <br>
       <% if correct_user?(comment) %>
