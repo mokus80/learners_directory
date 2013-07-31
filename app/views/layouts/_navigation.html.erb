@@ -9,12 +9,12 @@
           <% if current_user %>
               <li><%= link_to "Welcome #{current_user.name}!", root_path %></li>
               <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+               <% if current_user.admin? %>
+                  <li><%= link_to "Manage Users", users_path %></li>
+                  <li><%= link_to "Manage Resources", resources_path %></li>
+              <% end %>
           <% else %>
               <li><%= link_to "Sign in with Github", "/auth/github" %></li>
-          <% end %>
-          <% if current_user.admin? %>
-              <li><%= link_to "Manage Users", users_path %></li>
-              <li><%= link_to "Manage Resources", resources_path %></li>
           <% end %>
       </ul>
       </nav>
