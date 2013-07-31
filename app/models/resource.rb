@@ -17,6 +17,7 @@ class Resource < ActiveRecord::Base
 	belongs_to :user
 	has_many :taggings, :dependent => :destroy
 	has_many :tags, :through => :taggings
+	
 
 	def average_rating
 		if self.ratings.first.nil? == false
@@ -31,8 +32,32 @@ class Resource < ActiveRecord::Base
 		end
 	end
 
-	def self.tagged_with(name)
-    Tag.find_by_name!(name).resources
-  end
+
+	def tag_names
+		# @tags = Tag.all
+ 		tags.pluck(:name).join(", ")
+ 	end
+
+	def tag_names=(names)
+ 		self.tags = names.split(",").map { |tag| Tag.where(name: tag.squish).first_or_create! }
+ 	end
+
+	# def self.tagged_with(name)
+ #    	Tag.find_by_name!(name).resources
+ #  	end
+
+ #  	def tag_names
+ #    	@tag_names || tags.map(&:name).join(' ')
+ #  	end
+  
+ #  	private
+  
+ #  	def assign_tags
+ #    	if @tag_names
+ #      		self.tags = @tag_names.split(/\,/).map do |name|
+ #        	Tag.find_or_create_by_name(name)
+ #      		end
+ #    	end
+ #  	end
 
 end
