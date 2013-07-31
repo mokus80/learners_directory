@@ -26,11 +26,11 @@
             <p>This resource has <%= link_to "#{resource.comments.count} comments", resource_path(resource.id) %></p>
           <% end %>
 
-          <p>List of tags: <%=resource.tags %></p>
+          <p>Number of tags: <%=resource.tags.count %></p>
 
-          <% resource.tags.each do |tag| %>
-            <% "Tags: #{tag.name}" %>
-          <% end %>
+          <p>Tags: <% resource.tags.each do |tag| %>
+            <%= tag.name + ', ' %>
+          <% end %></p>
           
           <% if correct_user?(resource) %>
             <p><%= link_to "Delete resource", resource_path(resource), :method => :delete, :class => 'action' %></p>
