@@ -2,15 +2,32 @@ class ResourcesController < ApplicationController
   before_action :set_resource, only: [:show, :comment, :edit, :update, :destroy]
   before_filter :ensure_correct_user_for_resource, only: [:edit, :update, :destroy]
 
+
+  # def index
+  #   if (param[:tag])
+  #     @resources = Resource.find_by_tag(param[:tag])
+  #   else
+  #     @resources = Resource.all
+  #   end
+  # end
+
   # GET /resources
   # GET /resources.json
   def index
-    logger.info "in resources#index"
-    #@resources = Resource.all
-    #@sorted_resources = Resource.order("title")
-    @sorted_resources = Resource.all.sort_by { |resource| resource.average_rating }
-    @sorted_desc_resources = @sorted_resources.reverse
-
+    if params[:tag]
+      @tag = Tag.find_by_name(params[:tag])
+      @resources = @tag.resources
+      @sorted_resources = @resources.sort_by { |resource| resource.average_rating }
+      @sorted_desc_resources = @sorted_resources.reverse
+      # @sorted_resources = Resource.all.sort_by { |resource| resource.average_rating }
+      # @sorted_desc_resources = @sorted_resources.reverse
+    else
+      @sorted_resources = Resource.all.sort_by { |resource| resource.average_rating }
+      @sorted_desc_resources = @sorted_resources.reverse
+      #@resources = Resource.all
+      #@sorted_resources = Resource.order("title")
+    
+    end
   end
 
   def comment

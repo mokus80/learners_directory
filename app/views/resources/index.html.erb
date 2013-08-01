@@ -29,7 +29,7 @@
           <p>Number of tags: <%=resource.tags.count %></p>
 
           <p>Tags: <% resource.tags.each do |tag| %>
-            <%= tag.name + ', ' %>
+            <%= link_to tag.name, resources_path(:tag => tag.name) %>
           <% end %></p>
           
           <% if correct_user?(resource) %>
