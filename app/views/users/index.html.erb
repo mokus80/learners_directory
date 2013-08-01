@@ -4,7 +4,7 @@
   <tr>
     <th>Name</th>
     <th>Email</th>
-    <th>Delete</th>
+    <th></th>
     <th></th>
     <th></th>
   </tr>
@@ -13,8 +13,6 @@
   <tr>
     <td><%= user.name %></td>
     <td><%= user.email %></td>
-    <td><%= link_to 'Delete', user, :confirm => 'Are you sure?', 
-                                    :method => :delete %></td>
   </tr>
 <% end %>
 </table>
