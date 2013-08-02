@@ -45,10 +45,12 @@ class ResourcesController < ApplicationController
   # GET /resources/new
   def new
     @resource = Resource.new
+    @tags = Tag.all
   end
 
   # GET /resources/1/edit
   def edit
+    @tags = Tag.all
   end
 
   # POST /resources
@@ -104,7 +106,7 @@ class ResourcesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def resource_params
-      params.require(:resource).permit(:title, :summary, :link, :user_id, :tag_names)
+      params.require(:resource).permit(:title, :summary, :link, :user_id, :tag_names => [])
     end
 
     def ensure_correct_user_for_resource

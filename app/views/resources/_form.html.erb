@@ -23,10 +23,14 @@
     <%= f.label :link %><br>
     <%= f.text_field :link %>
   </div>
-  <div class="field">
-  <%= f.label :tag_names %><br>
-    <%= f.text_field :tag_names, placeholder: "Comma seperated tags" %>
+  <div>
+  <!-- #iterate -->
+  <% @tags.each do |tag| %>
+  <%= check_box_tag 'resource[tag_names][]', tag.name, (@resource.tags.any? { |t| t.name == tag.name}) %>
+  <%= label_tag tag.name %><br>
+  <% end %>
   </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

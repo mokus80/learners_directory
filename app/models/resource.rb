@@ -39,7 +39,7 @@ class Resource < ActiveRecord::Base
  	end
 
 	def tag_names=(names)
- 		self.tags = names.split(",").map { |tag| Tag.where(name: tag.squish).first_or_create! }
+ 		self.tags = names.map { |tag| Tag.where(name: tag).first }
  	end
 
 	# def self.tagged_with(name)
