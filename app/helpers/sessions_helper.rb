@@ -6,11 +6,7 @@ module SessionsHelper
     end
 
 	  def current_user
-  		if signed_in?
-        @current_user ||= User.find(session[:user_id]) if session[:user_id]
-      else
-        render text: "To do this you must sign-in", status: :unauthorized
-      end
+      @current_user ||= User.find(session[:user_id]) if session[:user_id]
   	end
 
   	def current_user=(user)
