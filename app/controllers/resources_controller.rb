@@ -1,6 +1,6 @@
 class ResourcesController < ApplicationController
   before_action :set_resource, only: [:show, :comment, :edit, :update, :destroy]
-  before_filter :ensure_correct_user_for_resource, only: [:edit, :update, :destroy]
+  before_action :ensure_correct_user_for_resource, only: [:edit, :update, :destroy]
 
 
   # def index
