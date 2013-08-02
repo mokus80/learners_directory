@@ -14,6 +14,14 @@
   <strong>Link:</strong>
   <%= @resource.link %>
 </p>
+
+<p>
+  <strong>Tags:</strong>
+  <% @resource.tags.each do |tag| %>
+    <%= link_to tag.name, resources_path(:tag => tag.name) %>&nbsp;|
+    <% end %>
+</p>
+
 <br>
   <% if correct_user?(@resource) %>
    <p><%= link_to "Edit resource", edit_resource_path(@resource) %></p>

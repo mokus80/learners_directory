@@ -23,8 +23,8 @@
             <p><%= link_to "#{resource.comments.count} Comments", resource_path(resource.id) %></p>
           <% end %>
 
-          <p>Tags (click on tag to sort by tag): <% resource.tags.each do |tag| %>
-            <%= link_to tag.name, resources_path(:tag => tag.name) %>
+          <p>Click on tags to filter: <% resource.tags.each do |tag| %>
+            <%= link_to tag.name, resources_path(:tag => tag.name) %>&nbsp;|
           <% end %></p>
 
           <p>Posted by: <%= link_to "#{resource.user.name}", user_path(resource.user) %> on <%= resource.created_at.strftime("%B %d, %Y") %></p>
