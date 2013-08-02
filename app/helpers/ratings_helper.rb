@@ -8,10 +8,14 @@ module RatingsHelper
 	end
 
 	def current_user_rating(r_id)
-		if @rating = current_user.ratings.find_by_resource_id(r_id)
-			@rating.value
+		if signed_in?
+			if @rating = current_user.ratings.find_by_resource_id(r_id)
+				@rating.value
+			else
+				"Rate this resource (click the blue button on the right)"
+			end
 		else
-			"Rate this resource"
+			link_to "Sign-in to rate this Resource", '/auth/github'
 		end
 	end
 end

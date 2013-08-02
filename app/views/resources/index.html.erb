@@ -7,34 +7,31 @@
         <div class="text-section">
           <h4><%= link_to "#{resource.title}", resource_path(resource.id) %></h4>
           <p><a href="<%= resource.link %>" target="_blank"><%= resource.link %></a></p>
-          <p><%= resource.summary %></p>
-          
-          <p>Posted at <%= resource.created_at %></p>
+          <p>Summary: <%= resource.summary %></p>
           
           <p>Average Rating:
               <% if resource.average_rating == 0 %>
                 <%= "This resource has not been rated yet" %>
               <% else %>
-                <%= resource.average_rating %>
+                <strong><%= resource.average_rating %></strong>
               <% end %></p>
-                 
-          <p>Posted by: <%= link_to "#{resource.user.name}", user_path(resource.user) %></p>
+          <p>Your Rating: <strong><%= current_user_rating(resource.id) %></strong></p>
           
           <% if resource.comments.count == 1 %>
             <p>This resource has <%= link_to "#{resource.comments.count} comment", resource_path(resource.id) %></p>
           <% else %>
-            <p>This resource has <%= link_to "#{resource.comments.count} comments", resource_path(resource.id) %></p>
+            <p><%= link_to "#{resource.comments.count} Comments", resource_path(resource.id) %></p>
           <% end %>
 
-          <p>Number of tags: <%=resource.tags.count %></p>
-
-          <p>Tags: <% resource.tags.each do |tag| %>
+          <p><%=resource.tags.count %> Tags (click on tag to sort by tag): <% resource.tags.each do |tag| %>
             <%= link_to tag.name, resources_path(:tag => tag.name) %>
           <% end %></p>
+
+          <p>Posted by: <%= link_to "#{resource.user.name}", user_path(resource.user) %> on <%= resource.created_at.strftime("%B %d, %Y") %></p>
           
           <% if correct_user?(resource) %>
-            <p><%= link_to "Delete resource", resource_path(resource), :method => :delete, :class => 'action' %></p>
-            <p><%= link_to "Edit resource", edit_resource_path(resource) %></p>
+            <strong>Manage:</strong>
+            <p><%= link_to "Delete resource", resource_path(resource), :method => :delete, :class => 'action' %>, <%= link_to "Edit resource", edit_resource_path(resource) %></p>
           <% end %>
 
         </div>
