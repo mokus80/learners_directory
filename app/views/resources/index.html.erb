@@ -23,7 +23,7 @@
             <p><%= link_to "#{resource.comments.count} Comments", resource_path(resource.id) %></p>
           <% end %>
 
-          <p><%=resource.tags.count %> Tags (click on tag to sort by tag): <% resource.tags.each do |tag| %>
+          <p>Tags (click on tag to sort by tag): <% resource.tags.each do |tag| %>
             <%= link_to tag.name, resources_path(:tag => tag.name) %>
           <% end %></p>
 
