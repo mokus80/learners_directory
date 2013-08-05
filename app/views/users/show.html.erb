@@ -16,24 +16,28 @@
         <% else %>
         	<p>User</p>
         <% end %>
-      <strong><%= "You have posted #{@user.resources.count} resource(s):" %></strong>
-      <div>
+      
+      <h3>Your Activity:</h3>
+      <strong><%= "#{@user.resources.count} Resource(s):" %></strong>
+      <div class="comment">
         <% @user.resources.each do |resource| %>
           <p>- <%= link_to "#{resource.title}", resource_path(resource.id) %></p>
         <% end %>
       </div>
 
-      <strong><%= "You have written #{@user.comments.count} comment(s):" %></strong>
-      <div>
+      <strong><%= "#{@user.comments.count} Comment(s):" %></strong>
+      <div class ="comment">
         <% @user.comments.each do |comment| %>
           <p>- <%= link_to "Resource #{comment.resource_id}", resource_path(comment.resource_id) %><%= ": #{comment.body}" %></p>
         <% end %>
       </div>
 
-      <strong><%= "You have rated #{@user.ratings.count} resource(s):" %></strong>
-        <% @user.ratings.each do |rating| %>
-          <p>- <%= link_to "Resource #{rating.resource_id}", resource_path(rating.resource_id) %><%= " has Rating #{rating.value}" %></p>
-        <% end %>
+      <strong><%= "#{@user.ratings.count} Rating(s):" %></strong>
+        <div class="comment">
+          <% @user.ratings.each do |rating| %>
+            <p>- <%= link_to "Resource #{rating.resource_id}", resource_path(rating.resource_id) %><%= " has Rating #{rating.value}" %>  |  <%= link_to "Delete", rating_path(rating), :method => :delete, :class => 'action' %></p>
+          <% end %>
+      </div>
 
     </section>
   </aside>
