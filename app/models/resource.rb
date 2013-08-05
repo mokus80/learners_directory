@@ -17,7 +17,10 @@ class Resource < ActiveRecord::Base
 	belongs_to :user
 	has_many :taggings, :dependent => :destroy
 	has_many :tags, :through => :taggings
-	
+
+	# validates :title,  presence: true, length: { maximum: 50 }
+ #  	VALID_LINK_REGEX = /http:/
+ #  	validates :link, presence: true, format: { with: VALID_LINK_REGEX }
 
 	def average_rating
 		if self.ratings.first.nil? == false

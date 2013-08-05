@@ -1,7 +1,8 @@
-<h1>List users</h1>
+<h1>Users</h1>
 
-<table>
+<table cellpadding="5">
   <tr>
+    <th></th>
     <th>Name</th>
     <th>Email</th>
     <th></th>
@@ -11,8 +12,10 @@
 
 <% @users.each do |user| %>
   <tr>
-    <td><%= user.name %></td>
+    <td><h1><%= gravatar_for(user) %></h1></td>
+    <td><%= link_to "#{user.name}", user_path(user) %></td>
     <td><%= user.email %></td>
+    <td><%= link_to "Delete User", user_path(user), :method => :delete, :class => 'action' %></td>
   </tr>
 <% end %>
 </table>
