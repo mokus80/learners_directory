@@ -1,5 +1,5 @@
 <h2>Welcome to the RailsApps Learners Directory</h2>
-<h4>Here you will find resources to learn Ruby on Rails</h4>
+<h4>Below you will find resources to learn Ruby on Rails:</h4>
   <br>
   <tbody>
     <% @sorted_desc_resources.each do |resource| %>
@@ -28,12 +28,11 @@
           <% end %></p>
 
           <p>Posted by: <%= link_to "#{resource.user.name}", user_path(resource.user) %> on <%= resource.created_at.strftime("%B %d, %Y") %></p>
-          
+      
           <% if correct_user?(resource) %>
             <strong>Manage:</strong>
             <p><%= link_to "Delete resource", resource_path(resource), :method => :delete, :class => 'action' %>, <%= link_to "Edit resource", edit_resource_path(resource) %></p>
           <% end %>
-
         </div>
 
         <div class="rating-section">

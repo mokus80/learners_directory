@@ -15,4 +15,5 @@
 class User < ActiveRecord::Base
 	has_many :ratings
 	has_many :resources
+	has_many :comments
 end

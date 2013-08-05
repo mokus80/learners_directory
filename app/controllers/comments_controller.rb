@@ -37,7 +37,7 @@ class CommentsController < ApplicationController
       @comment.user_id = current_user.id
       @comment.save
       respond_to do |format|
-      format.html { redirect_to resource_path(@resource), :notice => "Your comment has been saved" }
+      format.html { redirect_to resource_path(@comment.resource_id), :notice => "Your comment has been saved" }
       format.js
       end
     else

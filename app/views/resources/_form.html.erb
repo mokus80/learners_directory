@@ -24,7 +24,8 @@
     <%= f.text_field :link %>
   </div>
   <div>
-  <!-- #iterate -->
+
+
   <% @tags.each do |tag| %>
   <%= check_box_tag 'resource[tag_names][]', tag.name, (@resource.tags.any? { |t| t.name == tag.name}) %>
   <%= label_tag tag.name %><br>

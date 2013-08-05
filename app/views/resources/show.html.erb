@@ -1,60 +1,94 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @resource.title %>
-</p>
+<h2><%= @resource.title %></h2>
 
-<p>
-  <strong>Summary:</strong>
-  <%= @resource.summary %>
-</p>
+<div class="resource-box">
+        <div class="text-section">
+          <p>Summary: <%= @resource.summary %></p>
+          
+          <p>Average Rating:
+              <% if @resource.average_rating == 0 %>
+                <%= "This resource has not been rated yet" %>
+              <% else %>
+                <strong><%= @resource.average_rating %></strong>
+              <% end %></p>
+          <p>Your Rating: <strong><%= current_user_rating(@resource.id) %></strong></p>
 
-<p>
-  <strong>Link:</strong>
-  <%= @resource.link %>
-</p>
+          <p>Tags: <% @resource.tags.each do |tag| %>
+            <%= link_to tag.name, resources_path(:tag => tag.name) %>&nbsp;|
+          <% end %></p>
 
-<p>
-  <strong>Tags:</strong>
-  <% @resource.tags.each do |tag| %>
-    <%= link_to tag.name, resources_path(:tag => tag.name) %>&nbsp;|
-    <% end %>
-</p>
+          <p>Posted by: <%= link_to "#{@resource.user.name}", user_path(@resource.user) %> on <%= @resource.created_at.strftime("%B %d, %Y") %></p>
+        </div>
 
+        <div class="rating-section">
+          <div >
+             <button type="button" class="btn btn-info btn-mini rating-button">Rate Resource <i class="icon-star"></i></button>
+          </div>
+        <% if current_user %>
+          <div class="rating-box">
+            <br>
+            <p>Your rating: <%= current_user_rating(@resource.id) %></p>
+
+            <%= form_for (rating_ballot(@resource.id)) do |f| %>
+            
+              <%= f.radio_button(:value, 1) %>
+              <%= f.label(:value_rating, "1") %>
+              <%= f.radio_button(:value, 2) %>
+              <%= f.label(:value_rating, "2") %>
+              <%= f.radio_button(:value, 3) %>
+              <%= f.label(:value_rating, "3") %>
+              <%= f.radio_button(:value, 4) %>
+              <%= f.label(:value_rating, "4") %>
+              <%= f.radio_button(:value, 5) %>
+              <%= f.label(:value_rating, "5") %>
+
+              <%= f.hidden_field(:resource_id) %>
+              <%= f.hidden_field(:user_id) %>
+              <%= f.submit %>
+
+            <% end %>
+          </div>
+
+        <% else %>
+          <br>
+          <p>You must <%= link_to 'sign-in', 'auth/github' %> to rate a Resource</p>
+        <% end %> 
+        </div>
+          <br style="clear:both;"/>
+    </div>
 <br>
-  <% if correct_user?(@resource) %>
-   <p><%= link_to "Edit resource", edit_resource_path(@resource) %></p>
-    <p><%= link_to "Delete resource", resource_path(@resource), :method => :delete, :class => 'action' %></p>
-       
-  <% end %>
-  <br>
-
+   <% if correct_user?(@resource) %>
+      <strong>Manage:</strong>
+      <p><%= link_to "Delete resource", resource_path(@resource), :method => :delete, :class => 'action' %>, <%= link_to "Edit resource", edit_resource_path(@resource) %></p>
+   <% end %>
+<br>
 
  <%#= render :partial => @resource.comments %>
 
 
 <h3>Comments</h3>
+  <% if @resource.comments.first == nil %>
+    <p>No comments yet.</p>
+  <% else %>
    <% for comment in @resource.comments %>
     <div class="comment">
       <h5> <%= comment.body %> </h5>
       <p>
         <%= "Comment posted by: " %> 
         <%= link_to "#{comment.user.name}", user_path(comment.user)  %>
-      </p>
-      <time><%= comment.created_at %></time>
-      <br>
+      <time><%= comment.created_at.strftime("%B %d, %Y %T") %></time></p>
       <% if correct_user?(comment) %>
         <p><%= link_to "Edit comment", edit_resource_comment_path(@resource, comment) %></p>
         <p><%= link_to "Delete comment", resource_comment_path(@resource, comment), :method => :delete, :class => 'action' %></p>
       <% end %>
-   </div>
-<% end %>
+    </div>
+    <% end %>
+  <% end %>
 <br>
 
-<h3>Post a Comment</h3>
-
+<h4>Post a Comment</h4>
 <%= render 'comments/form' %>
 
-<%= link_to 'Edit', edit_resource_path(@resource) %> 
-<%= link_to 'View all resources', resources_path %>
+<p><%= link_to 'Edit', edit_resource_path(@resource) %></p>
+<strong><%= link_to 'View all Resources', resources_path %></strong>

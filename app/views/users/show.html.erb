@@ -9,17 +9,35 @@
       </h1>
       <h2>
         <%= @user.name %>
-        <%#= @user.email %>
       </h2>
+      <p>Email: <%= @user.email %></p>
         <% if @user.admin == true %>
         	<p>Admin</p>
         <% else %>
         	<p>User</p>
         <% end %>
-      <p><%= "#{@user.name} has posted #{@user.resources.count} resources" %></p>
+      <strong><%= "You have posted #{@user.resources.count} resource(s):" %></strong>
+      <div>
+        <% @user.resources.each do |resource| %>
+          <p>- <%= link_to "#{resource.title}", resource_path(resource.id) %></p>
+        <% end %>
+      </div>
+
+      <strong><%= "You have written #{@user.comments.count} comment(s):" %></strong>
+      <div>
+        <% @user.comments.each do |comment| %>
+          <p>- <%= link_to "Resource #{comment.resource_id}", resource_path(comment.resource_id) %><%= ": #{comment.body}" %></p>
+        <% end %>
+      </div>
+
+      <strong><%= "You have rated #{@user.ratings.count} resource(s):" %></strong>
+        <% @user.ratings.each do |rating| %>
+          <p>- <%= link_to "Resource #{rating.resource_id}", resource_path(rating.resource_id) %><%= " has Rating #{rating.value}" %></p>
+        <% end %>
+
     </section>
   </aside>
 </div>
 
 
-<%= link_to 'Resources', resources_path %>
+<strong><%= link_to 'View all Resources', resources_path %></strong>
