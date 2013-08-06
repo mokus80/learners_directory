@@ -22,13 +22,16 @@
       <div class="comment">
         <% @user.resources.each do |resource| %>
           <p>- <%= link_to "#{resource.title}", resource_path(resource.id) %></p>
+          <p> <%= link_to "Delete resource", resource_path(resource), :method => :delete, :class => 'action' %>  |  <%= link_to "Edit resource", edit_resource_path(resource) %></p>
         <% end %>
+
       </div>
 
       <strong><%= "#{@user.comments.count} Comment(s):" %></strong>
       <div class ="comment">
         <% @user.comments.each do |comment| %>
           <p>- <%= link_to "Resource #{comment.resource_id}", resource_path(comment.resource_id) %><%= ": #{comment.body}" %></p>
+        <p><%= link_to "Edit comment", edit_resource_comment_path(comment.resource, comment) %>  |  <%= link_to "Delete comment", resource_comment_path(comment.resource, comment), :method => :delete, :class => 'action' %></p>
         <% end %>
       </div>
 

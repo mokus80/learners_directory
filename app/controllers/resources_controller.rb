@@ -73,6 +73,7 @@ class ResourcesController < ApplicationController
   # PATCH/PUT /resources/1
   # PATCH/PUT /resources/1.json
   def update
+    @tags = Tag.all
     respond_to do |format|
       if @resource.update(resource_params)
         format.html { redirect_to @resource, notice: 'Resource was successfully updated.' }
