@@ -1,23 +1,29 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
-    <div class="container">
-      <nav>
-        <ul class="nav pull-right">
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "About", page_path('about') %></li>
-          <li><%= link_to "Post a Resource", new_resource_path %></li> 
-          <% if current_user %>
-              <li><%= link_to "Welcome #{current_user.name}!", root_path %></li>
-              <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
-               <% if current_user.admin? %>
-                  <li><%= link_to "Manage Users", users_path %></li>
-                  <li><%= link_to "Manage Resources", resources_path %></li>
-              <% end %>
-          <% else %>
-              <li><%= link_to "Sign in with Github", "/auth/github" %></li>
+    <nav class="container">
+      <div class="logo">
+        RailsApp
+        Learner's
+        Directory
+      </div>
+      <% unless current_user %>
+        <a class="login-github" href="/auth/github" title="Sign in with Github">
+          Sign in with Github
+        </a>
+      <% end %>
+      <ul class="nav pull-right">
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "About", page_path('about') %></li>
+        <li><%= link_to "Post a Resource", new_resource_path %></li>
+        <% if current_user %>
+          <li><%= link_to "Welcome #{current_user.name}!", root_path %></li>
+          <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+          <% if current_user.admin? %>
+            <li><%= link_to "Manage Users", users_path %></li>
+            <li><%= link_to "Manage Resources", resources_path %></li>
           <% end %>
+        <% end %>
       </ul>
-      </nav>
-    </div>
+    </nav>
   </div>
 </header>

@@ -1,3 +1,77 @@
 @import "bootstrap";
-body { padding-top: 60px; }
+body {
+  padding-top: 60px;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", Sans-Serif;
+  background-color: #fff;
+  color: #333;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a {
+  color: #000;
+  &:visited {
+    color: #666;
+  }
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
+
 @import "bootstrap-responsive";
+@import "github";
+
+header {
+  nav .logo {
+    float: left;
+    color: #ddd;
+    font-size: 24px;
+    font-weight: normal;
+    padding: 10px 6px;
+  }
+  a.login-github {
+    float: right;
+    padding: 8px 10px;
+    margin: 4px 0px;
+    line-height: 1em;
+    font-size: 13px;
+    border-radius: 4px;
+    vertical-align: middle;
+    background-image: linear-gradient(#f4f4f4, #ececec);
+    /* color: #444;
+    // text-shadow: 0 0 1px #fff;
+    // background-color: #eee;
+    // border: 1px solid #ccc;
+    */
+
+    &:before {
+      content: ' ';
+      width: 22px;
+      height: 22px;
+      background: url(GitHub-Mark-32px.png) no-repeat;
+      display: inline-block;
+      background-size: 22px 22px;
+      vertical-align: middle;
+      margin: -8px 2px -4px -3px;
+    }
+
+    &:hover {
+      text-decoration: none;
+      background-image: linear-gradient(#599bdc, #3072b3);
+      color: #fff;
+    }
+  }
+}
