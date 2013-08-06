@@ -56,6 +56,7 @@ class ResourcesController < ApplicationController
   # POST /resources
   # POST /resources.json
   def create
+    @tags = Tag.all
     @resource = Resource.new(resource_params)
     @resource.user = current_user
     respond_to do |format|
