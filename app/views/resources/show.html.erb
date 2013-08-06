@@ -75,12 +75,12 @@
     <div class="comment">
       <h5> <%= comment.body %> </h5>
       <p>
-        <%= "Comment posted by: " %> 
+        <%= "Posted by: " %> 
         <%= link_to "#{comment.user.name}", user_path(comment.user)  %>
-      <time><%= comment.created_at.strftime("%B %d, %Y %T") %></time></p>
+      <time><%= comment.created_at.strftime("Posted on %B %d, %Y at %T") %></time></p>
       <% if correct_user?(comment) %>
-        <p><%= link_to "Edit comment", edit_resource_comment_path(@resource, comment) %></p>
-        <p><%= link_to "Delete comment", resource_comment_path(@resource, comment), :method => :delete, :class => 'action' %></p>
+        <p><%= link_to "Edit", edit_resource_comment_path(@resource, comment) %></p>
+        <p><%= link_to "Delete", resource_comment_path(@resource, comment), :method => :delete, :class => 'action' %></p>
       <% end %>
     </div>
     <% end %>

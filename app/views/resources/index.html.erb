@@ -1,4 +1,4 @@
-<h2>Welcome to the Rails Learners Directory</h2>
+<h2>Welcome</h2>
 <h4>Below you will find resources to learn Rails:</h4>
   <br>
   <tbody>
@@ -8,7 +8,7 @@
           <h4><%= link_to "#{resource.title}", resource_path(resource.id) %></h4>
           <p><a href="<%= resource.link %>" target="_blank"><%= resource.link %></a></p>
           <p>Summary: <%= resource.summary %></p>
-          
+
           <p>Average Rating:
               <% if resource.average_rating == 0 %>
                 <%= "This resource has not been rated yet" %>
@@ -16,7 +16,7 @@
                 <strong><%= resource.average_rating %></strong>
               <% end %></p>
           <p>Your Rating: <strong><%= current_user_rating(resource.id) %></strong></p>
-          
+
           <% if resource.comments.count == 1 %>
             <p>This resource has <%= link_to "#{resource.comments.count} comment", resource_path(resource.id) %></p>
           <% else %>
@@ -28,7 +28,7 @@
           <% end %></p>
 
           <p>Posted by: <%= link_to "#{resource.user.name}", user_path(resource.user) %> on <%= resource.created_at.strftime("%B %d, %Y") %></p>
-      
+
           <% if correct_user?(resource) %>
             <strong>Manage:</strong>
             <p><%= link_to "Delete resource", resource_path(resource), :method => :delete, :class => 'action' %>, <%= link_to "Edit resource", edit_resource_path(resource) %></p>
@@ -45,7 +45,7 @@
             <p>Your rating: <%= current_user_rating(resource.id) %></p>
 
             <%= form_for (rating_ballot(resource.id)) do |f| %>
-            
+
               <%= f.radio_button(:value, 1) %>
               <%= f.label(:value_rating, "1") %>
               <%= f.radio_button(:value, 2) %>
@@ -67,7 +67,7 @@
         <% else %>
           <br>
           <p>You must <%= link_to 'sign-in', 'auth/github' %> to rate a Resource</p>
-        <% end %> 
+        <% end %>
         </div>
           <br style="clear:both;"/>
     </div>
@@ -78,5 +78,3 @@
 <br>
 
 <%= link_to 'Post a Resource', new_resource_path %>
-        
-
