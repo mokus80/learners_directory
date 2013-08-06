@@ -12,7 +12,7 @@
 #
 
 class Resource < ActiveRecord::Base
-	has_many :ratings
+	has_many :ratings, :dependent => :destroy
 	has_many :comments, :dependent => :destroy
 	belongs_to :user
 	has_many :taggings, :dependent => :destroy
