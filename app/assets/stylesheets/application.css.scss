@@ -47,3 +47,22 @@
 a {
 	color: blue;
 }
+
+ul.tags{
+    background-color: #eee;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #ccc;
+    list-style-type: none;
+    font-family: Helvetica;
+    display: inline-block;
+}
+
+ul.tags li {
+    color: #444;
+    padding: 10px 20px;
+    border: 1px solid #bbb;
+    background-color: #fff;
+    margin: 5px;
+    border-radius: 4px;
+}
