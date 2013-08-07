@@ -1,26 +1,21 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <nav class="container">
-      <div class="logo">
-        <%= link_to
-          "RailsApps
-           Learners
-           Directory" %>
+      <div>
+        <%= link_to "RailsApps Learners Directory", root_path, {:class => "logo"} %>
       </div>
         <ul class="nav pull-right">
           <li><%#= link_to "Home", root_path %></li>
+          <li><%= link_to "About", page_path('about') %></li>
+          <li><%= link_to "Post a Resource", new_resource_path %></li>
           <% if current_user %>
               <li><%= link_to "Welcome #{current_user.name}!", user_path(current_user) %></li>
               <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
-              <li><%= link_to "About", page_path('about') %></li>
-              <li><%= link_to "Post a Resource", new_resource_path %></li>
                   <% if current_user.admin? %>
                       <li><%= link_to "Manage Users", users_path %></li>
-                      <li><%= link_to "Manage Resources", resources_path %></li>
                   <% end %>
           <% else %>
-              <li><%= link_to "About", page_path('about') %></li>
-              <li><%= link_to "Post a Resource", new_resource_path %></li>
+              
               <li><a class="login-github" href="/auth/github" title="Sign in with Github">
                 Sign in with Github
               </a></li>
