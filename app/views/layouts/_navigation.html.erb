@@ -5,9 +5,12 @@
         <%= link_to "RailsApps Learners Directory", root_path, {:class => "logo"} %>
       </div>
         <ul class="nav pull-right">
-          <li><%#= link_to "Home", root_path %></li>
           <li><%= link_to "About", page_path('about') %></li>
-          <li><%= link_to "Post a Resource", new_resource_path %></li>
+          <li>
+          <div>
+          <%= link_to "Post a Resource", new_resource_path, {:class => "post-resource"} %>
+          </div>
+          </li>
           <% if current_user %>
               <li><%= link_to "Welcome #{current_user.name}!", user_path(current_user) %></li>
               <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
