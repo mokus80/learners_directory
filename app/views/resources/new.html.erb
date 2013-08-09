@@ -5,8 +5,7 @@
 	<%= render 'form' %>
 <% else %>
 	<p><%= "You must sign-in to post a Resource" %></p>
-	<p><%= link_to "Sign in with Github", "/auth/github", class: "btn btn-large btn-primary" %></p>
-	<p><button class="btn-auth btn-github">Sign in with <b>GitHub</b></button></p>
+	<p><%#= link_to "Sign in with Github", "/auth/github", class: "btn btn-large btn-primary" %></p>
 <% end %>
 
 <%= link_to 'Back', resources_path %>

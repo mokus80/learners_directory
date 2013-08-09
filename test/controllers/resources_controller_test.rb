@@ -37,22 +37,22 @@ class ResourcesControllerTest < ActionController::TestCase
   
   test "non-signed in users cannot post a resource" do
     get :new
-     
-    puts response.body
 
     assert response.body.include?("You must sign-in to post a Resource")
   end
 
   test "signed-in users can post a resource" do
     # given users are aleady signed in
+    u = User.create(:name => "nicole", :email => "nicole@me.com")
     # when user clicks on new resource  
-    get :new
+    puts "USER IS #{u.name}" 
+    get :new, {}, { :user_id => u.id }
     # then check whether form gets rendered in resources/new
-
     puts response.body
-
     #assert response.body.include?("Create Resource")
-    assert_select "input", "Create Resource"
+    assert_select "form input"
+
+    assert !response.body.include?("You must sign-in to post a Resource")
 
   end
 

@@ -50,9 +50,31 @@ header {
 	}
 
 	nav .post-resource {
+		float: right;
+		padding: 8pm 10px;
+		margin: 4px 8px;
+		line-height: 1em;
+		font-size: 13px;
+		border-radius: 4px;
 		vertical-align: middle;
-		text-align: center;
+		background-image: linear-gradient(#383435, #0A0A0A);
+		
+		&:before {
+			content: ' ';
+			width: 22px;
+			height: 22px;
+			background-size: 22px 22px;
+			vertical-align: middle;
+			margin: -8px 2px -4px -3px;
+		}
+
+		&:hover {
+			text-decoration: none;
+			background-image: linear-gradient(#599bdc, #3072b3);
+			color: #fff;
+		}
 	}
+
 	
 	a.login-github {
 		float: right;
