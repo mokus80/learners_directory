@@ -47,7 +47,6 @@ class ResourcesControllerTest < ActionController::TestCase
     # when user clicks on new resource  
     puts "USER IS #{u.name}" 
     get :new, {}, { :user_id => u.id }
-    # then check whether form gets rendered in resources/new
     puts response.body
     #assert response.body.include?("Create Resource")
     assert_select "form input"
@@ -73,11 +72,16 @@ class ResourcesControllerTest < ActionController::TestCase
   #   assert_redirected_to resource_path(assigns(:resource))
   # end
 
-  # test "should destroy resource" do
-  #   assert_difference('Resource.count', -1) do
-  #     delete :destroy, id: @resource
-  #   end
+  test "should destroy resource if user is admin" do
+    #given user is admin or resource owner
+    u = User.create(:name => "nicole", :email => "nicole@me.com", :admin => true)
+    resource = Resource.create!(:title => "hi", :link => "http://hallo.com", :summary => "hi")
 
-  #   assert_redirected_to resources_path
-  # end
+    #when they click 'destroy resource'
+    delete :destroy, {:id => resource.id}
+
+    #then they can destroy a resource
+    assert resource.link == nil
+
+  end
 end
