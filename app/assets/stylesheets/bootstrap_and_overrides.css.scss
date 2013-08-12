@@ -24,12 +24,23 @@ pre {
 a {
 	color: #000;
 	&:visited {
-		color: #666;
+		color: #000;
 	}
 	&:hover {
 		color: #fff;
 		background-color: #000;
 	}
+}
+
+a.tag {
+	color: white;
+	&:visited {
+		color: white;
+	}
+	&:hover {
+		color: #fff;
+		background-color: #000;
+		}
 }
 
 @import "bootstrap-responsive";

@@ -6,9 +6,9 @@
       <div class="resource-box">
         <div class="text-section">
           <p>
-            <h3><a href="<%= resource.title %>" target="_blank"><%= resource.title %></a></h3>Tags: <% resource.tags.each do |tag| %>
-              <%= link_to tag.name, resources_path(:tag => tag.name) %>&nbsp;|
-              <% end %>
+            <h3><a href="<%= resource.title %>" target="_blank"><%= resource.title %></a>         <% resource.tags.each do |tag| %>
+              <span class="label label-info"><a href="<%= resources_path(:tag => tag.name) %>" class="tag"> <%= tag.name %></a></span>
+              <% end %></h3>
           </p>
           
           <p><a href="<%= resource.link %>" target="_blank"><%= resource.link %></a></p>
