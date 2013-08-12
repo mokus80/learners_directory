@@ -38,6 +38,8 @@
 }
 
 .rating-section {
+    width: 30%;
+    float: right;
 }
 
 .rating-box {
@@ -69,3 +71,16 @@ ul.tags li {
 
 post-resource {
 }
+
+
+.rating-buttons, .rating-labels {
+    height: 20px;
+    & li, label {
+        width: 30px;
+        float: left;
+    }
+    & ul {
+        margin: 0 0 10px 0;
+    }
+}
+

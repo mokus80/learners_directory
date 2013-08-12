@@ -17,12 +17,14 @@
         	<p>User</p>
         <% end %>
       
-      <h3>Your Activity:</h3>
+      <h3>Activity:</h3>
       <strong><%= "#{@user.resources.count} Resource(s):" %></strong>
       <div class="user_activity_box">
         <% @user.resources.each do |resource| %>
           <p>- <%= link_to "#{resource.title}", resource_path(resource.id) %></p>
-          <p> <%= link_to "Delete resource", resource_path(resource), :method => :delete, :class => 'action' %>  |  <%= link_to "Edit resource", edit_resource_path(resource) %></p>
+          <% if correct_user?(resource) %>
+            <p> <%= link_to "Delete resource", resource_path(resource), :method => :delete, :class => 'action' %>  |  <%= link_to "Edit resource", edit_resource_path(resource) %></p>
+          <% end %>
         <% end %>
 
       </div>

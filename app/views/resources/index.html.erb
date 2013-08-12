@@ -40,18 +40,21 @@
             <p>Your rating: <%= current_user_rating(resource.id) %></p>
 
             <%= form_for (rating_ballot(resource.id)) do |f| %>
-
-              <%= f.radio_button(:value, 1) %>
-              <%= f.label(:value_rating, "1") %>
-              <%= f.radio_button(:value, 2) %>
-              <%= f.label(:value_rating, "2") %>
-              <%= f.radio_button(:value, 3) %>
-              <%= f.label(:value_rating, "3") %>
-              <%= f.radio_button(:value, 4) %>
-              <%= f.label(:value_rating, "4") %>
-              <%= f.radio_button(:value, 5) %>
-              <%= f.label(:value_rating, "5") %>
-
+              <div class="rating-buttons"><ul>
+                <li><%= f.radio_button(:value, 1) %></li>
+                <li><%= f.radio_button(:value, 2) %></li>
+                <li><%= f.radio_button(:value, 3) %></li>
+                <li><%= f.radio_button(:value, 4) %></li>
+                <li><%= f.radio_button(:value, 5) %></li>
+              </ul></div>
+              <div class="rating-labels"><ul>
+                <li><%= f.label(:value_rating, "1") %></li>
+                <li><%= f.label(:value_rating, "2") %></li>
+                <li><%= f.label(:value_rating, "3") %></li>
+                <li><%= f.label(:value_rating, "4") %></li>
+                <li><%= f.label(:value_rating, "5") %></li>
+               </ul></div>
+              <br>
               <%= f.hidden_field(:resource_id) %>
               <%= f.hidden_field(:user_id) %>
               <%= f.submit %>
@@ -71,5 +74,3 @@
   </tbody>
 
 <br>
-
-<%= link_to 'Post a Resource', new_resource_path %>
