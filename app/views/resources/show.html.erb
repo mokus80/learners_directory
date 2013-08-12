@@ -15,7 +15,7 @@
           <p>Your Rating: <strong><%= current_user_rating(@resource.id) %></strong></p>
 
           <p>Tags: <% @resource.tags.each do |tag| %>
-            <%= link_to tag.name, resources_path(:tag => tag.name) %>&nbsp;|
+            <span class="label label-info"><a href="<%= resources_path(:tag => tag.name) %>" class="tag"> <%= tag.name %></a></span>
           <% end %></p>
 
           <p>Posted by: <%= link_to "#{@resource.user.name}", user_path(@resource.user) %> on <%= @resource.created_at.strftime("%B %d, %Y") %></p>
