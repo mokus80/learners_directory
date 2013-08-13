@@ -20,9 +20,8 @@
       <%= check_box_tag 'resource[tag_names][]', tag.name, (@resource.tags.any? { |t| t.name == tag.name}) %>
       <span class="label label-info tag"><%= tag.name %></span>
 
-      <!-- doesnt take input yet
       <%= button_tag tag.name, :class => "label label-info tag", :type => "submit" %>
-     -->
+
     <% end %>
     </li>
     </ul>
