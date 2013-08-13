@@ -10,7 +10,7 @@ LearnersDirectory::Application.routes.draw do
   resources :users 
 
 
-  root :to => redirect('/resources')
+  root :to => 'resources#index'
 
   resources :sessions, only: [:new, :show]
 
