@@ -21,7 +21,7 @@
       <div class="myCheckbox">
         <%= check_box_tag 'resource[tag_names][]', tag.name, (@resource.tags.any? { |t|
             t.name == tag.name}), :class => "checkbox" %>
-      <div class="label label-info tag"><%= tag.name %></div> 
+      <div class="tag-label"><%= tag.name %></div> 
       </div>
       
 

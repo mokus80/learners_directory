@@ -94,6 +94,7 @@ post-resource {
     position: absolute;
     width: 1px;
 }
+
 .myCheckbox .checkbox:focus {
     clip: auto;
     height: auto;
@@ -103,13 +104,19 @@ post-resource {
 }
 
 .myCheckbox {
-    height: 20px;
+    height: 15px;
     border: 1px solid grey;
     display: inline-block;
     padding: 3px 10px;
+    background-color: #3a87ad;
+    border-radius: 3px;
 }
 
 .myCheckbox.checked {
-    background-color: green;
+    background-color: #5bc0de;
+    color: white;
+}
+
+.tag-label {
     color: white;
 }
