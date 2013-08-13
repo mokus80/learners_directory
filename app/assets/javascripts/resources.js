@@ -9,4 +9,16 @@ $(document).ready(function() {
 }); 
 
 
+$(function() {
+    $('.myCheckbox').on('click', function(event) {
+        var checkbox = $(event.currentTarget).find('.checkbox');
+        checkbox.trigger('click');
+    });
+    
+    $('.myCheckbox .checkbox').on('change', function(event){
+        var checkbox = $(event.target);
+        checkbox.parent().toggleClass('checked');
+    });
+});
+
 //'$(function(){}) is same as '$(document).ready(function() {}) 

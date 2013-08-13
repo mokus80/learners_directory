@@ -84,3 +84,32 @@ post-resource {
     }
 }
 
+.myCheckbox .checkbox {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin:-1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+.myCheckbox .checkbox:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    width: auto;
+}
+
+.myCheckbox {
+    height: 20px;
+    border: 1px solid grey;
+    display: inline-block;
+    padding: 3px 10px;
+}
+
+.myCheckbox.checked {
+    background-color: green;
+    color: white;
+}
