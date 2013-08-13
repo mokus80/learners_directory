@@ -2,11 +2,11 @@ require 'test_helper'
 
 class ResourcesControllerTest < ActionController::TestCase
 
-#   test "should get index" do
-#     get :index
-#     assert_response :success
-#     assert_not_nil assigns(:resources)
-#   end
+  # test "should get index" do
+  #   get :index
+    
+  #   assert_nil resources
+  # end
 
 #   test "should get new" do
 #     get :new
@@ -47,15 +47,12 @@ class ResourcesControllerTest < ActionController::TestCase
     # when user clicks on new resource  
     puts "USER IS #{u.name}" 
     get :new, {}, { :user_id => u.id }
-    puts response.body
     #assert response.body.include?("Create Resource")
     assert_select "form input"
 
     assert !response.body.include?("You must sign-in to post a Resource")
 
   end
-
-
 
   # test "should show resource" do
   #   get :show, id: @resource
@@ -73,15 +70,18 @@ class ResourcesControllerTest < ActionController::TestCase
   # end
 
   test "should destroy resource if user is admin" do
-    #given user is admin or resource owner
+    #given user is admin
     u = User.create(:name => "nicole", :email => "nicole@me.com", :admin => true)
-    resource = Resource.create!(:title => "hi", :link => "http://hallo.com", :summary => "hi")
 
-    #when they click 'destroy resource'
-    delete :destroy, {:id => resource.id}
+    resource = Resource.create!(:user_id => u.id, :title => "hi", :link => "http://hallo.com", :summary => "hi")
 
-    #then they can destroy a resource
-    assert resource.link == nil
+    #when they click 'destroy resource' 
+    delete :destroy, { :id => resource.id }, { :user_id => u.id }
+    assert_response :redirect
+
+    # r = Resource.find(resource.id)
+    # puts r
+    assert_nil Resource.exists?(resource.id)
 
   end
 end

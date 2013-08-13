@@ -9,7 +9,6 @@ gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
-
 gem 'bootstrap-sass'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -35,6 +34,8 @@ gem 'annotate', '2.5.0'
 gem 'high_voltage'
 
 gem 'omniauth-github', :git => 'git://github.com/intridea/omniauth-github.git'
+
+gem 'rails_12factor', group: :production
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
