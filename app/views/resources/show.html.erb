@@ -60,7 +60,7 @@
 <br>
    <% if correct_user?(@resource) %>
       <strong>Manage:</strong>
-      <p><%= link_to "Delete resource", resource_path(@resource), :method => :delete, :class => 'action' %>, <%= link_to "Edit resource", edit_resource_path(@resource) %></p>
+      <p><%= link_to "Delete resource", resource_path(@resource), :method => :delete, :class => 'action delete-button' %>, <%= link_to "Edit resource", edit_resource_path(@resource) %></p>
    <% end %>
 <br>
 
@@ -80,7 +80,7 @@
       <time><%= comment.created_at.strftime("Posted on %B %d, %Y at %T") %></time></p>
       <% if correct_user?(comment) %>
         <p><%= link_to "Edit", edit_resource_comment_path(@resource, comment) %></p>
-        <p><%= link_to "Delete", resource_comment_path(@resource, comment), :method => :delete, :class => 'action' %></p>
+        <p><%= link_to "Delete", resource_comment_path(@resource, comment), :method => :delete, :class => 'action delete-button' %></p>
       <% end %>
     </div>
     <% end %>
