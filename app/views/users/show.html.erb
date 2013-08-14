@@ -21,7 +21,7 @@
       <strong><%= "#{@user.resources.count} Resource(s):" %></strong>
       <div class="user_activity_box">
         <% @user.resources.each do |resource| %>
-          <p>- <%= link_to "#{resource.title}", resource_path(resource.id) %></p>
+          <p><h4><%= link_to "#{resource.title}", resource_path(resource.id) %></h4></p>
           <% if correct_user?(resource) %>
             <p> <%= link_to "Delete resource", resource_path(resource), :method => :delete, :class => 'action' %>  |  <%= link_to "Edit resource", edit_resource_path(resource) %></p>
           <% end %>
@@ -47,6 +47,3 @@
     </section>
   </aside>
 </div>
-
-
-<strong><%= link_to 'View all Resources', resources_path %></strong>

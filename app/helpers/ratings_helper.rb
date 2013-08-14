@@ -12,7 +12,7 @@ module RatingsHelper
 			if @rating = current_user.ratings.find_by_resource_id(r_id)
 				@rating.value
 			else
-				"Rate this resource (click the blue button on the right)"
+				"Rate this resource"
 			end
 		else
 			link_to "Sign-in to rate this Resource", '/auth/github'
