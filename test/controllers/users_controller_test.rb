@@ -19,8 +19,41 @@ class UsersControllerTest < ActionController::TestCase
 		puts u.admin?
 		#when they go to users/index
 		get :index, {}, { :user_id => u.id }
-		puts response.body
+	
 		#then 
 		assert response.body.include?("Users")
+	end
+
+	test "admin should be able to delete users" do
+		#given user is admin
+		u = User.create(:name => "nicole", :email => "nicole@me.com", :admin => true)
+
+		user = User.create(:name => "laura", :email => "laura@me.com")
+		#when they click 'delete user'
+		delete :destroy, { :id => user.id }, { :user_id => u.id }
+    	assert_response :redirect
+
+    	puts user.name
+
+    	assert_nil User.exists?(user.id)
+
+		#then they should be able to delete the user
+	end
+
+	# ----> keeps passing although it should fail
+	test "user that is not admin should NOT be able to delete users" do
+		#given user is admin
+		u = User.create(:name => "nicole", :email => "nicole@me.com", :admin => false)
+
+		user = User.create(:name => "laura", :email => "laura@me.com")
+
+		#when they click 'delete user'
+		delete :destroy, { :id => user.id }, { :user_id => u.id }
+
+    	assert_response(401)
+
+    	# assert_nil User.exists?(user.id)
+
+		#then they should be able to delete the user
 	end
 end
