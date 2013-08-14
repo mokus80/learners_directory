@@ -14,22 +14,6 @@ class RatingsController < ApplicationController
 		end
 	end
 
-
-	# def update
-	# 	@resource = Resource.find_by(params[:resource_id])
-	# 	if current_user.id == @resource.id
-	# 		redirect_to resource_path(@resource), :alert => "You cannot rate your own resource"
-	# 	else
-	# 		@rating = current_user.ratings.find_by_resource_id(@resource.id)
-	# 		if @rating.update_attributes(ratings_params)
-	# 			respond_to do |format|
-	# 				format.html { redirect_to resource_path(@resource), :notice => "Your rating has been updated" }
-	# 				format.js
-	# 			end
-	# 		end
-	# 	end
-	# end
-
 	def update
 		@rating = Rating.find(params[:id])
 		if @rating.update(ratings_params)

@@ -37,25 +37,16 @@ class CommentsController < ApplicationController
       @comment.user_id = current_user.id
       @comment.save
       respond_to do |format|
-      format.html { redirect_to resource_path(@comment.resource_id), :notice => "Your comment has been saved" }
-      format.js
+        format.html { redirect_to resource_path(@comment.resource_id), :notice => "Your comment has been saved" }
+        format.js
       end
     else
       respond_to do |format|
-      format.html { render action: 'new' }
-      format.json { render json: @resource.errors, status: :unprocessable_entity }
+        format.html { render action: 'new' }
+        format.json { render json: @resource.errors, status: :unprocessable_entity }
       end
     end
   end
-  # if @comment.save
-  #       format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
-  #       format.json { render action: 'show', status: :created, location: @comment }
-  #     else
-  #       format.html { render action: 'new' }
-  #       format.json { render json: @comment.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
 
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json

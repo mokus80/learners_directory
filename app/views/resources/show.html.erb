@@ -60,7 +60,7 @@
 <br>
    <% if correct_user?(@resource) %>
       <strong>Manage:</strong>
-      <p><%= link_to "Delete resource", resource_path(@resource), :method => :delete, :class => 'action delete-resource' %>, <%= link_to "Edit resource", edit_resource_path(@resource) %></p>
+      <p><%= link_to "Delete", resource_path(@resource), :method => :delete, :class => 'action delete-resource' %>, <%= link_to "Edit", edit_resource_path(@resource) %></p>
    <% end %>
 <br>
 

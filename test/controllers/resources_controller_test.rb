@@ -73,15 +73,26 @@ class ResourcesControllerTest < ActionController::TestCase
     #given user is admin
     u = User.create(:name => "nicole", :email => "nicole@me.com", :admin => true)
 
-    resource = Resource.create!(:user_id => u.id, :title => "hi", :link => "http://hallo.com", :summary => "hi")
+    resource = Resource.create!(:title => "hi", :link => "http://hallo.com", :summary => "hi")
 
-    #when they click 'destroy resource' 
+    #when the admin user clicks 'destroy resource' 
     delete :destroy, { :id => resource.id }, { :user_id => u.id }
     assert_response :redirect
 
-    # r = Resource.find(resource.id)
-    # puts r
     assert_nil Resource.exists?(resource.id)
-
   end
+
+  test "should destroy resource if user created the same resource" do
+    #given user created a resource
+    u = User.create(:name => "nicole", :email => "nicole@me.com", :admin => false)
+
+    resource = Resource.create!(:user_id => u.id, :title => "hi", :link => "http://hallo.com", :summary => "hi")
+
+    #when the user clicks 'destroy resource' 
+    delete :destroy, { :id => resource.id }, { :user_id => u.id }
+    assert_response :redirect
+
+    assert_nil Resource.exists?(resource.id)
+  end
+
 end
