@@ -38,9 +38,11 @@ class CommentsControllerTest < ActionController::TestCase
     resource = Resource.create!(:title => "hi", :link => "http://hallo.com", :summary => "hi")
 
     #when they click 'create comment'
-    post :create, {}, { :user_id => u.id }
+    post :create, { :resource_id => resource.id, 
+      :comment => { :body => "hi" }}, { :user_id => u.id }
     #then a comment gets posted 
-    assert_redirected_to resource_path(comment: "resource_id")
+    
+    assert_redirected_to resource_path(resource.id)
     #assert_select "form input"
 
   end
