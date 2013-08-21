@@ -1,8 +1,15 @@
 <h2>Welcome</h2>
-<h4>Find and rate resources for learning Rails:</h4>
+<h4>Find and rate resources for learning Rails: 
+<% @tags.each do |tag| %>
+      <span class="label label-info"><a href="<%= resources_path(:tag => tag.name) %>" class="tag"> <%= tag.name %></a></span>
+      <% end %>
+
+</h4>
+
   <br>
   <tbody>
     <% @sorted_desc_resources.each do |resource| %>
+
       <div class="resource-box">
         <div class="text-section">
           <p>
@@ -13,6 +20,7 @@
           
           <p><a href="<%= resource.link %>" target="_blank"><%= resource.link %></a></p>
           <p><%= resource.summary %></p>
+        
 
           <p>
             <% if resource.comments.count == 1 %>
@@ -31,13 +39,20 @@
         </div>
 
         <div class="rating-section">
+          <p>Average Rating:
+              <% if resource.average_rating == 0 %>
+                <%= "This resource has not been rated yet" %>
+              <% else %>
+                <%= resource.average_rating %>
+              <% end %></p>
+        <p>Your Rating: <%= current_user_rating(resource.id) %></p>
+        <br>
         <% if current_user %>
           <div >
              <button type="button" class="btn btn-info btn-mini rating-button">Rate Resource <i class="icon-star"></i></button>
           </div>
           <div class="rating-box">
             <br>
-            <p>Your rating: <%= current_user_rating(resource.id) %></p>
 
             <%= form_for (rating_ballot(resource.id)) do |f| %>
               <div class="rating-buttons"><ul>
@@ -69,8 +84,10 @@
           <br>
           <p>You must <%= link_to 'sign-in', 'auth/github' %> to rate a Resource</p>
         <% end %>
+
         </div>
           <br style="clear:both;"/>
+
     </div>
     <br>
     <% end %>
