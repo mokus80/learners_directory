@@ -1,5 +1,4 @@
-$(document).ready(function() {
-	console.log ("the rating button got clicked");
+$(document).on('page:load', function() {
 	$('.rating-button').click(function() {
 		$(this).closest('.resource-box').find('.rating-box').css("visibility", "visible");
 	});
@@ -12,7 +11,7 @@ $(document).ready(function() {
 }); 
 
 
-$(function() {
+$(document).on('page:load', function() {
     $('.myCheckbox').on('click', function(event) {
         var checkbox = $(event.currentTarget).find('.checkbox');
         checkbox.trigger('click');
