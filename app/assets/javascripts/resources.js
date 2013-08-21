@@ -3,10 +3,10 @@ $(document).on('page:load', function() {
 		$(this).closest('.resource-box').find('.rating-box').css("visibility", "visible");
 	});
 	$('a.action.delete-resource').click(function(){
-		return confirm('Are you sure you want to delete this resource?')
+		return confirm('Are you sure you want to delete this resource?');
 	});
     $('a.action.delete-comment').click(function(){
-        return confirm('Are you sure you want to delete this comment?')
+        return confirm('Are you sure you want to delete this comment?');
     });
 }); 
 

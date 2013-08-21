@@ -6,18 +6,12 @@ class ResourcesController < ApplicationController
   # GET /resources.json
   def index
     if params[:tag]
-      @tag = Tag.find_by_name(params[:tag])
-      @resources = @tag.resources
-      @sorted_resources = @resources.sort_by { |resource| resource.average_rating }
-      @sorted_desc_resources = @sorted_resources.reverse
-      # @sorted_resources = Resource.all.sort_by { |resource| resource.average_rating }
-      # @sorted_desc_resources = @sorted_resources.reverse
+      tag = Tag.find_by_name(params[:tag])
+      resources = tag.resources
+      @sorted_desc_resources = @resources.sort_by{ |resource| resource.average_rating }.reverse
     else
       @sorted_resources = Resource.all.sort_by { |resource| resource.average_rating }
       @sorted_desc_resources = @sorted_resources.reverse
-      #@resources = Resource.all
-      #@sorted_resources = Resource.order("title")
-    
     end
   end
 
