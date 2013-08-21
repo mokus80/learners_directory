@@ -16,9 +16,9 @@
 
           <p>
             <% if resource.comments.count == 1 %>
-              <%= link_to "#{resource.comments.count} comment", resource_path(resource.id) %>
+              <%= link_to "#{resource.comments.count} comment", resource_path(resource.id) + '#comments' %>
             <% else %>
-              <%= link_to "#{resource.comments.count} Comments", resource_path(resource.id) %>
+              <%= link_to "#{resource.comments.count} Comments", resource_path(resource.id) + '#comments' %>
             <% end %>  | 
 
             Posted by <%= link_to "#{resource.user.name}", user_path(resource.user) %> on <%= resource.created_at.strftime("%B %d, %Y") %>  
