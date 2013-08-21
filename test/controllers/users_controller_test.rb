@@ -40,7 +40,7 @@ class UsersControllerTest < ActionController::TestCase
 		#then they should be able to delete the user
 	end
 
-	# ----> keeps passing although it should fail
+	# ----> keeps failing
 	test "user that is not admin should NOT be able to delete users" do
 		#given user is admin
 		u = User.create(:name => "nicole", :email => "nicole@me.com", :admin => false)
