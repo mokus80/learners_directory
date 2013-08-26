@@ -24,6 +24,8 @@ gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+# solves the problem that jquery onload stuff doesn't load when clicking via a turbolin. Read more: http://asciicasts.com/episodes/390-turbolinks
+gem 'jquery-turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
