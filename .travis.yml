@@ -4,5 +4,6 @@ rvm:
 
 before_script:
   - cp config/database.travis.yml config/database.yml
+  - psql -c 'create database strano_test' -U postgres
 # uncomment this line if your project needs to run something other than `rake`:
 # script: bundle exec rspec spec
