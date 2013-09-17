@@ -27,10 +27,10 @@ class RatingsControllerTest < ActionController::TestCase
     	rating = Rating.create(:user_id => u.id, :resource_id => resource.id, :value => "3")
 
 		#when they click 'update rating'
-		patch :update, {}, { :user_id => u.id }
+		patch :update, { :rating => { :value => "5", :resource_id => resource.id, :user_id => u.id}, :id => rating.id}, { :user_id => u.id }
 		#then the rating gets updated
 		assert_response :redirect
-		assert Rating.exists?(rating.id)
+		assert_equal(5, rating.reload.value, "rating wasn't updated")
 	end
 
 end

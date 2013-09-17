@@ -39,7 +39,9 @@ module SessionsHelper
   end
 
   def admin
+    p 'check++++++++'
     if signed_in?
+    p 'check 2================='
       render text: "Access denied", status: :unauthorized unless current_user.admin?
     else
       render text: "Access denied", status: :unauthorized 

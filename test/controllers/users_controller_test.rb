@@ -13,10 +13,11 @@ class UsersControllerTest < ActionController::TestCase
   		assert_response(401)
 	end
 
+
 	test "admin should be able to access users/index" do
 		#given user is admin
 		u = User.create(:name => "nicole", :email => "nicole@me.com", :admin => true)
-		puts u.admin?
+		#puts u.admin?
 		#when they go to users/index
 		get :index, {}, { :user_id => u.id }
 	
@@ -33,8 +34,6 @@ class UsersControllerTest < ActionController::TestCase
 		delete :destroy, { :id => user.id }, { :user_id => u.id }
     	assert_response :redirect
 
-    	puts user.name
-
     	assert_nil User.exists?(user.id)
 
 		#then they should be able to delete the user
@@ -42,18 +41,16 @@ class UsersControllerTest < ActionController::TestCase
 
 	# ----> keeps failing
 	test "user that is not admin should NOT be able to delete users" do
-		#given user is admin
-		u = User.create(:name => "nicole", :email => "nicole@me.com", :admin => false)
+		#given user is not admin
+		nicole = User.create(:name => "nicole", :email => "nicole@me.com", :admin => false)
 
-		user = User.create(:name => "laura", :email => "laura@me.com")
+		laura = User.create(:name => "laura", :email => "laura@me.com")
 
 		#when they click 'delete user'
-		delete :destroy, { :id => user.id }, { :user_id => u.id }
+		delete :destroy, { :id => laura.id }, { :user_id => nicole.id }
 
-    	assert_response(401)
 
-    	# assert_nil User.exists?(user.id)
+    	refute_nil User.exists?(laura.id)
 
-		#then they should be able to delete the user
 	end
 end

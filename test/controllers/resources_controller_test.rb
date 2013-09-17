@@ -85,16 +85,16 @@ class ResourcesControllerTest < ActionController::TestCase
 
   
   test "should NOT destroy resource if user is not admin or resource poster" do
-    #given user is admin
+    #given user is not an admin or the owner of the resource
     u = User.create(:name => "nicole", :email => "nicole@me.com")
 
     resource = Resource.create!(:title => "hi", :link => "http://hallo.com", :summary => "hi")
 
-    #when the admin user clicks 'destroy resource' 
+    #when the user user clicks 'destroy resource' 
     delete :destroy, { :id => resource.id }, { :user_id => u.id }
+    assert Resource.exists?(resource.id)
     assert_response(401) 
 
-    # assert_nil Resource.exists?(resource.id)
   end
 
   
