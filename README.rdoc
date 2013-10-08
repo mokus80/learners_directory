@@ -1,6 +1,9 @@
-== README
+== About
+The Rails Learners Directory is a crowdsourced directory of resources to learn Ruby on Rails. It enables learners to find resources appropriate for them. The Learners Directory is for learners and coaches of all levels who are looking for user-recommended learning resources. It is also for resource-writers and aggregators to better spread their work.
 
-== How to run the app
+Unlike a Google search, the Rails Learners Directory is a curated, organized set of user-recommended resources. Students and coaches alike can browse by cost, topic, skill-level, and much more. Our goal is that ratings and reviews help students and coaches find resources appropriate for them.
+
+== Run the Learners Directory
 
 We don't want to hardcode the environment variables, so we're going to use the foreman gem to set them. 
 
@@ -8,27 +11,24 @@ First, run bundle install.
 <tt>bundle install</tt>
 
 Next we need to set the environment variables. 
-Create a new file called '.env'. It'll ask you if you're sure and you are, so click yes. By putting the '.' at the front of the filename, the file isn't visible in the Finder. This is because it's a private file to you and no other user needs it. 
+Create a new file called '.env'. It'll ask if you're sure, click yes. By putting the '.' at the front of a filename, the file isn't visible in the Finder. It's a private file and no one else needs to see it. 
 
-In that file, include your client_id and client_secret:
+In the .env file, write your client_id and client_secret:<br>
 <tt>CLIENT_ID='git_hub client id here'
 CLIENT_SECRET='git_hub client password here'</tt>
 
 * DON'T FORGET: Never git commit this file because it's your client ID and password and therefore it's specific to you.
 
 Now take a look at the Procfile. You should see: 
-<tt>dev: rails s</tt>
+<tt>dev: rails s</tt>.<br>
 When we use the foreman gem on the command line, we access this file and it sets the environment variables using the .env file and starts the server for us.
 
 Run this in the command line to start the server:
-<tt>foreman start dev</tt>
+<tt>foreman start dev</tt>.
 
-This should run the application in development mode. 
+This will run the application in development mode. 
 
-This is the learners directory and it's awesome. 
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
+== Things to add
 
 Things you may want to cover:
 
@@ -49,7 +49,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+== Maintenance
 
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+The Rails Learners Directory was built by Nicole Fehlösi and Laura Wadden during the 2013 Rails Girls Summer of Code as part of Team Rails Grrls. Fehlösi and Wadden were coached by Duana Stanley, Deepak Jois, Oliver Hookins, Tobias Pfeiffer and Daniel Kehoe. To contact the owners, please message through github or tweet to @RailsGrrls.
