@@ -1,5 +1,30 @@
 == README
 
+== How to run the app
+
+We don't want to hardcode the environment variables, so we're going to use the foreman gem to set them. 
+
+First, run bundle install.
+<tt>bundle install</tt>
+
+Next we need to set the environment variables. 
+Create a new file called '.env'. It'll ask you if you're sure and you are, so click yes. By putting the '.' at the front of the filename, the file isn't visible in the Finder. This is because it's a private file to you and no other user needs it. 
+
+In that file, include your client_id and client_secret:
+<tt>CLIENT_ID='git_hub client id here'
+CLIENT_SECRET='git_hub client password here'</tt>
+
+* DON'T FORGET: Never git commit this file because it's your client ID and password and therefore it's specific to you.
+
+Now take a look at the Procfile. You should see: 
+<tt>dev: rails s</tt>
+When we use the foreman gem on the command line, we access this file and it sets the environment variables using the .env file and starts the server for us.
+
+Run this in the command line to start the server:
+<tt>foreman start dev</tt>
+
+This should run the application in development mode. 
+
 This is the learners directory and it's awesome. 
 
 This README would normally document whatever steps are necessary to get the
