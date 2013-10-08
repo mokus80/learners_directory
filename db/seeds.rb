@@ -7,8 +7,18 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Tag.create([
-	{name: 'Rails'}, 
-	{name: 'Ruby'}, 
+	{name: 'Rails 3.2'},
+	{name: 'Rails 4.0'},
+	{name: 'Ruby'},
+	{name: 'Beginner'},
+	{name: 'Intermediate'},
+	{name: 'Advanced'},
+	{name: 'Screencast'},
+	{name: 'Book'},
+	{name: 'Online'},
+	{name: 'Tutorial'},
+	{name: 'Course'},
+	{name: 'Website'},
 	{name: 'Paid'}, 
-	{name: 'Free'},
+	{name: 'Free'}
 ])
