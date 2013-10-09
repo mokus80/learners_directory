@@ -3,14 +3,22 @@ The Rails Learners Directory is a crowdsourced directory of resources to learn R
 
 Unlike a Google search, the Rails Learners Directory is a curated, organized set of user-recommended resources. Students and coaches alike can browse by cost, topic, skill-level, and much more. Our goal is that ratings and reviews help students and coaches find resources appropriate for them.
 
-== Run the Learners Directory
+== Features
+* User sign-in and profile page
+* Post and tag a resource 
+* Rate and Comment on a resource
+* Sort and browse resources by rating and tags
+
+[include screenshot here]
+
+== Installation
 
 We don't want to hardcode the environment variables, so we're going to use the foreman gem to set them. 
 
 First, run bundle install.
 <tt>bundle install</tt>
 
-Next we need to set the environment variables. 
+Next, set the environment variables. 
 Create a new file called '.env'. It'll ask if you're sure, click yes. By putting the '.' at the front of a filename, the file isn't visible in the Finder. It's a private file and no one else needs to see it. 
 
 In the .env file, write your client_id and client_secret:<br>
@@ -28,27 +36,32 @@ Run this in the command line to start the server:
 
 This will run the application in development mode. 
 
-== Things to add
+Database trouble? Don't forget to start your PostgresApp. Download here: http://postgresapp.com/.
 
-Things you may want to cover:
+== Database Creation & Initialization
 
-* Ruby version
+Postgres - download the PostgresApp: http://postgresapp.com/. Postgres will always run and you won't need to start it on the command line everytime you run the app.
 
-* System dependencies
+== Testing
 
-* Configuration
+To run all the tests:
+<tt>rake test</tt>
 
-* Database creation
+To run tests in a specific file:
+<tt>rake test filepath</tt>
 
-* Database initialization
+For example,
+<tt>rake test test/controllers/users_controller_test.rb</tt>
 
-* How to run the test suite
+== Demo
 
-* Services (job queues, cache servers, search engines, etc.)
+http://railsapps.herokuapp.com/
 
-* Deployment instructions
+== Ruby and Rails Versions
 
-* ...
+Ruby 1.9.3
+Rails 4.0.0
+
 == Maintenance
 
-The Rails Learners Directory was built by Nicole Fehlösi and Laura Wadden during the 2013 Rails Girls Summer of Code as part of Team Rails Grrls. Fehlösi and Wadden were coached by Duana Stanley, Deepak Jois, Oliver Hookins, Tobias Pfeiffer and Daniel Kehoe. To contact the owners, please message through github or tweet to @RailsGrrls.
+The Rails Learners Directory was built by Nicole Fehlösi and Laura Wadden (@laurawadden) during the 2013 Rails Girls Summer of Code as part of Team Rails Grrls. Fehlösi and Wadden were coached by Duana Stanley, Deepak Jois, Oliver Hookins, Tobias Pfeiffer and Daniel Kehoe. To contact the owners, please message through github or tweet to @RailsGrrls.
