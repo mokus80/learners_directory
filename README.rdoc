@@ -38,9 +38,37 @@ This will run the application in development mode.
 
 Database trouble? Don't forget to start your PostgresApp. Download here: http://postgresapp.com/.
 
-== Database Creation & Initialization
+== Database Initialization
 
-Postgres - download the PostgresApp: http://postgresapp.com/. Postgres will always run and you won't need to start it on the command line everytime you run the app.
+[These are working instructions - please fork or post a GitHub issue if you have improvements or comments]
+
+* Install Postgres
+If you don't have it already, install homebrew and update homebrew.<br>
+<tt>install homebrew</tt>
+<tt>brew update</tt>
+
+Now you can install postgres:<br>
+<tt>brew install postgres</tt>
+
+Run the PostgresApp to start postgres:<br>
+If you don't have it already, download the PostgresApp: http://postgresapp.com/. Postgres will always run and you won't need to start it on the command line everytime you run the app. To run the app, simply open it. For MAC users you'll see a fun little elephant sitting in your top bar.
+
+* Initialize the database
+Become the super user:<br>
+<tt>sudo su - postgres</tt>
+Then go into the postgres console<br>
+<tt>psql template1</tt><br>
+If you need help or want to see the commands, type 'help'.<br>
+
+Create a user with a password. Remember these because you'll need them later. I'll use 'username' for the username and 'password' for the password and 'mydatabase' for the database. 
+<tt>CREATE USER username WITH PASSWORD password;</tt><br>
+
+Now that you have a user, you can create your database using your username:<br>
+<tt>CREATE DATABASE mydatabase OWNER username;</tt><br>
+
+You don't <i>need</i> to do this, but it helps to double check if you've created the database or not. Inside of the psql template1 type:<br>
+<tt>\l</tt><br>
+That should list all of the databases and you should see your database there. If it's there, great work. If not, did you forget the semicolon at the end of the line? Did you create the right kind of user? 
 
 == Testing
 
