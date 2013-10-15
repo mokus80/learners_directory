@@ -36,11 +36,11 @@ gem 'high_voltage'
 
 gem 'omniauth-github', :git => 'git://github.com/intridea/omniauth-github.git'
 
-gem 'rails_12factor', group: :production
+gem 'rails_12factor', :group => :production
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
+  gem 'sdoc', :require => false
 end
 
 # Use ActiveModel has_secure_password
