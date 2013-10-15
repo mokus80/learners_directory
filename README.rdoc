@@ -1,18 +1,18 @@
-# About
+== About
 The Rails Learners Directory is a crowdsourced directory of resources to learn Ruby on Rails. It enables learners to find resources appropriate for them. The Learners Directory is for learners and coaches of all levels who are looking for user-recommended learning resources. It is also for resource-writers and aggregators to better spread their work.  
 
 Unlike a Google search, the Rails Learners Directory is a curated, organized set of user-recommended resources. Students and coaches alike can browse by cost, topic, skill-level, and much more. Our goal is that ratings and reviews help students and coaches find resources appropriate for them.  
 
-The Learners Directory was created by Laura Wadden and Nicole Felhösi during the 2013 [Rails Girls Summer of Code](http://www.railsgirlssummerofcode.org). Many thanks to Duana Stanley, Deepak Jois, Tobias Pfeifer, Oliver Hookins and Daniel Kehoe for their coaching and support.  
+The Learners Directory was created by Laura Wadden and Nicole Felhösi during the 2013 Rails Girls Summer of Code (http://www.railsgirlssummerofcode.org). Many thanks to Duana Stanley, Deepak Jois, Tobias Pfeifer, Oliver Hookins and Daniel Kehoe for their coaching and support.  
 
-# Features
+== Features
 * User sign-in and profile page
 * Post and tag a resource 
 * Rate and Comment on a resource
 * Sort and browse resources by rating and tags
 
-# Installation
-Install [git](https://help.github.com/articles/set-up-git). Not yet a regular git user? Try this [github overview](http://ftp.newartisans.com/pub/git.from.bottom.up.pdf).
+== Installation
+Install git (https://help.github.com/articles/set-up-git). Not yet a regular git user? Try this github overview (http://ftp.newartisans.com/pub/git.from.bottom.up.pdf).
 
 Clone the Learners Directory into a directory of your choice:  
 
@@ -42,14 +42,15 @@ In the command line run:
 
 This will start the server and run the application in development mode. 
 
-Database trouble? Don't forget to run your [PostgresApp](http://postgresapp.com/).  
+Database trouble? Don't forget to run your PostgresApp (http://postgresapp.com/).  
 
-# Database Initialization
+== Database Initialization
 [These are working instructions - please fork or post a GitHub issue if you have improvements or comments.]
 
-## Mac
+Mac
+----------
 
-### Install Postgres
+* Install Postgres
 If you don't have it already, install homebrew and update homebrew.  
 
     install homebrew  
@@ -59,10 +60,10 @@ Install postgres:
 
     brew install postgres
 
-### Run PostgresApp to start postgres
+* Run PostgresApp to start postgres
 Download PostgresApp: http://postgresapp.com/. Postgres will always run and you won't need to start it on the command line everytime you start the server. To run PostgresApp, simply open it. MAC users will see a fun, tiny elephant sitting in their top bar.
 
-### Create the development, test and production databases
+* Create the development, test and production databases
 Become the postgres user:  
 
     sudo su - postgres
@@ -109,7 +110,8 @@ Create the environment and production databases. Note: rake will automatically c
     rake db:migrate
     rake db:seed
 
-## Linux
+Linux
+--------
 
 For Ubuntu or Debian
 
@@ -122,9 +124,10 @@ Install postgres
 Note: If you have another version of Postgres other than 9.1, switch the number at the end of this comman to your version. 
 
 
-## All operating systems
+All operating systems
+---------
 
-### Edit the database.yml file  
+* Edit the database.yml file  
 Copy config/database.yml.example to config/database.yml. Customize the contents of database.yml with your personal database name, username and password.
 
     development:
@@ -158,7 +161,7 @@ Copy config/database.yml.example to config/database.yml. Customize the contents 
         username: your_username_here
         password: your_password_here
 
-# Testing
+== Testing
 
 Run all tests:  
 
@@ -172,15 +175,15 @@ Example:
 
     rake test test/controllers/users_controller_test.rb
 
-# Demo
+== Demo
 
 http://railsapps.herokuapp.com/
 
-# Ruby and Rails Versions
+== Ruby and Rails Versions
 
-Ruby 1.9.3
+Ruby 1.9.3  
 Rails 4.0.0
 
-# Maintenance
+== Maintenance
 
 The Rails Learners Directory was built by Nicole Fehlösi and Laura Wadden (@laurawadden) during the 2013 Rails Girls Summer of Code as part of Team Rails Grrls. Fehlösi and Wadden were coached by Duana Stanley, Deepak Jois, Oliver Hookins, Tobias Pfeiffer and Daniel Kehoe. To contact the owners, please message through github or tweet to @RailsGrrls.
