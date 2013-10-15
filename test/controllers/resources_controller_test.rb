@@ -45,7 +45,6 @@ class ResourcesControllerTest < ActionController::TestCase
     # given users are aleady signed in
     u = User.create(:name => "nicole", :email => "nicole@me.com")
     # when user clicks on new resource  
-    puts "USER IS #{u.name}" 
     get :new, {}, { :user_id => u.id }
     #assert response.body.include?("Create Resource")
     assert_select "form input"

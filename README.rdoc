@@ -175,6 +175,8 @@ Example:
 
     rake test test/controllers/users_controller_test.rb
 
+We're using TravisCL for continuous integration. You can see the build here: https://travis-ci.org/mokus80/learners_directory/. 
+
 == Demo
 
 http://railsapps.herokuapp.com/

@@ -6,7 +6,6 @@ class SessionsControllerTest < ActionController::TestCase
  #    # given user is signed out 
  #    u = User.create(:name => "nicole", :email => "nicole@me.com")
  #    # when user clicks the sign-in button and enters correct log-in information  
- #    puts "USER IS #{u.name}" 
  #    get :new, {}, { :user_id => u.id }
  #    #assert user is signed-in and becomes current_user
  #    assert_select "form input"
