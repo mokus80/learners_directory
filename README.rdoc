@@ -1,15 +1,18 @@
 == About
-The Rails Learners Directory is a crowdsourced directory of resources to learn Ruby on Rails. It enables learners to find resources appropriate for them. The Learners Directory is for learners and coaches of all levels who are looking for user-recommended learning resources. It is also for resource-writers and aggregators to better spread their work.  
+The Rails Learners Directory is a crowdsourced directory of resources to learn programming. It enables learners to find resources appropriate for them. The Learners Directory is for learners and coaches of all levels who are looking for user-recommended learning resources. Users can submit resources.
 
 Unlike a Google search, the Rails Learners Directory is a curated, organized set of user-recommended resources. Students and coaches alike can browse by cost, topic, skill-level, and much more. Our goal is that ratings and reviews help students and coaches find resources appropriate for them.  
 
-The Learners Directory was created by Laura Wadden and Nicole Felhösi during the 2013 Rails Girls Summer of Code (http://www.railsgirlssummerofcode.org). Many thanks to Duana Stanley, Deepak Jois, Tobias Pfeifer, Oliver Hookins and Daniel Kehoe for their coaching and support.  
+The Learners Directory is a sub-project of RailsApps (http://www.railsapps.com) and was created by Laura Wadden and Nicole Felhösi during the 2013 Rails Girls Summer of Code (http://www.railsgirlssummerofcode.org). Many thanks to Duana Stanley, Deepak Jois, Tobias Pfeifer, Oliver Hookins and Daniel Kehoe for their coaching and support.  
 
 == Features
-* User sign-in and profile page
+* User sign-in with GitHub and profile page
 * Post and tag a resource 
 * Rate and Comment on a resource
 * Sort and browse resources by rating and tags
+
+== Demo
+http://railsapps.herokuapp.com/
 
 == Installation
 Install git (https://help.github.com/articles/set-up-git). Not yet a regular git user? Try this github overview (http://ftp.newartisans.com/pub/git.from.bottom.up.pdf).
@@ -20,37 +23,14 @@ Clone the Learners Directory into a directory of your choice:
 
 Run bundle install:  
 
-    bundle install
-
-We don't want to hardcode the environment variables, so we use the foreman gem to set them. Create a new file called '.env'. It'll ask if you're sure, click yes. By putting the '.' at the front of a filename, the file isn't visible in the Finder. It's a private file so no one else is able to see it. 
-
-In the .env file, write your client_id and client_secret:
-    CLIENT_ID='git_hub client id here'  
-    CLIENT_SECRET='git_hub client password here'
-
-* DON'T FORGET: Never git commit this file because it's your client ID and password and therefore it's specific to you.
-
-Now take a look at the Procfile. You should see:  
-
-    dev: rails s
-
-When we use the foreman gem on the command line, we access this file and it sets the environment variables using the .env file and starts the server for us.
-
-In the command line run:  
-
-    foreman start dev  
-
-This will start the server and run the application in development mode. 
-
-Database trouble? Don't forget to run your PostgresApp (http://postgresapp.com/).  
+    bundle install 
 
 == Database Initialization
 [These are working instructions - please fork or post a GitHub issue if you have improvements or comments.]
 
-Mac
-----------
+=== Mac
 
-* Install Postgres
+==== Install Postgres
 If you don't have it already, install homebrew and update homebrew.  
 
     install homebrew  
@@ -60,10 +40,10 @@ Install postgres:
 
     brew install postgres
 
-* Run PostgresApp to start postgres
+==== Run PostgresApp to start postgres
 Download PostgresApp: http://postgresapp.com/. Postgres will always run and you won't need to start it on the command line everytime you start the server. To run PostgresApp, simply open it. MAC users will see a fun, tiny elephant sitting in their top bar.
 
-* Create the development, test and production databases
+==== Create the development, test and production databases
 Become the postgres user:  
 
     sudo su - postgres
@@ -90,15 +70,13 @@ Enter the postgres console:
 
 Type 'help' in the console if you need help or would like to see the postgres commands.  
 
-Create a user with a password. Remember these because you'll need them later. I'll use 'username' for the username, 'password' for the password and 'mydatabase' for the database.  
+Create a user with a password. Remember these because you'll need them later. I'll use 'username' for the username, 'password' for the password and 'mydatabase' for the database. Create a postgres user:  
 
-    CREATE USER username WITH PASSWORD 'password'; 
+    CREATE USER username WITH PASSWORD 'password';  
 
-This creates a postgres user. 
+Allow this user to create a database:
     
     ALTER USER ‘name’ CREATEDB;
-
-Allows this user to create a database.
 
 Exit the postgresql console:  
 
@@ -124,7 +102,7 @@ Install postgres
 Note: If you have another version of Postgres other than 9.1, switch the number at the end of this comman to your version. 
 
 
-All operating systems
+Everyone do this part
 ---------
 
 * Edit the database.yml file  
@@ -161,6 +139,34 @@ Copy config/database.yml.example to config/database.yml. Customize the contents 
         username: your_username_here
         password: your_password_here
 
+== Starting the App
+
+We don't want to hardcode the environment variables, so we use the foreman gem to set them. Create a new file called '.env'. [Note for Mac Users: It will ask if you're sure, click yes. By putting the '.' at the front of a filename, the file isn't visible in the Finder. It's a private file so no one else is able to see it.]
+
+In the .env file, write your client_id and client_secret:
+    CLIENT_ID='git_hub client id here'  
+    CLIENT_SECRET='git_hub client password here'
+
+The CLIENT_ID and CLIENT_SECRET are the credentials for the app to use GitHub. You need to sign up for GitHub API credentials: https://github.com/settings/applications/new. This process should give you back a CLIENT_ID and a CLIENT_SECRET. 
+
+* DON'T FORGET: Never git commit this file because it's your client ID and password and therefore it's specific to you.  
+
+Now take a look at the Procfile. You should see:  
+
+    dev: rails s
+
+When we use the foreman gem on the command line, foreman uses this file to start the server.
+
+In the command line run:  
+
+    foreman start dev  
+
+This will start the server and run the application in development mode.  
+
+Now open localhost:3000 in your browser and you should see the app. If everything works, you can do a little dance now.
+
+Database trouble? Don't forget to run your PostgresApp (http://postgresapp.com/). 
+
 == Testing
 
 Run all tests:  
@@ -169,17 +175,13 @@ Run all tests:
 
 Run specific tests:  
 
-    rake test filepath
+    rake test path_to_file
 
 Example:  
 
     rake test test/controllers/users_controller_test.rb
 
 We're using TravisCL for continuous integration. You can see the build here: https://travis-ci.org/mokus80/learners_directory/. 
-
-== Demo
-
-http://railsapps.herokuapp.com/
 
 == Ruby and Rails Versions
 
