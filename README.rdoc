@@ -30,9 +30,7 @@ Run bundle install:
 == Database Initialization
 [These are working instructions - please fork or post a GitHub issue if you have improvements or comments.]
 
-=== Mac
-
-==== Install Postgres
+=== Mac Users Install Postgres
 If you don't have it already, install homebrew and update homebrew.  
 
     install homebrew  
@@ -41,9 +39,23 @@ If you don't have it already, install homebrew and update homebrew.
 Install postgres:  
 
     brew install postgres
+    
+=== Linux Users Install Postgres
+
+For Ubuntu or Debian
+
+    sudo apt-get update
+    
+Install postgres
+
+    sudo apt-get -y install postgresql postgresql-server-dev-9.1
+    
+Note: If you have another version of Postgres other than 9.1, switch the number at the end of this comman to your version.
+
+=== All Operating systems follow the rest of these steps:
 
 ==== Run PostgresApp to start postgres
-Download PostgresApp[http://postgresapp.com/]. Postgres will always run and you won't need to start it on the command line everytime you start the server. To run PostgresApp, simply open it. MAC users will see a fun, tiny elephant sitting in their top bar.
+Download PostgresApp[http://postgresapp.com/]. Postgres will always run and you won't need to start it on the command line everytime you start the server. To run PostgresApp, simply open it. Mac users will see a fun, tiny elephant sitting in their top bar.
 
 ==== Create the development, test and production databases
 Become the postgres user:  
@@ -90,24 +102,7 @@ Create the environment and production databases. Note: rake will automatically c
     rake db:migrate
     rake db:seed
 
-Linux
---------
-
-For Ubuntu or Debian
-
-    sudo apt-get update
-    
-Install postgres
-
-    sudo apt-get -y install postgresql postgresql-server-dev-9.1
-    
-Note: If you have another version of Postgres other than 9.1, switch the number at the end of this comman to your version. 
-
-
-Everyone do this part
----------
-
-* Edit the database.yml file  
+==== Edit the database.yml file  
 Copy config/database.yml.example to config/database.yml. Customize the contents of database.yml with your personal database name, username and password.
 
     development:
