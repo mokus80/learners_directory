@@ -17,7 +17,7 @@ The Learners Directory was created by {Laura Wadden}[http://www.github.com/queen
 http://railsapps.herokuapp.com/
 
 == Installation
-Install git (https://help.github.com/articles/set-up-git). Not yet a regular git user? Try this github overview (http://ftp.newartisans.com/pub/git.from.bottom.up.pdf).
+Install git[https://help.github.com/articles/set-up-git]. Not yet a regular git user? Try this {github overview}[http://ftp.newartisans.com/pub/git.from.bottom.up.pdf].
 
 Clone the Learners Directory into a directory of your choice:  
 
@@ -43,7 +43,7 @@ Install postgres:
     brew install postgres
 
 ==== Run PostgresApp to start postgres
-Download PostgresApp: http://postgresapp.com/. Postgres will always run and you won't need to start it on the command line everytime you start the server. To run PostgresApp, simply open it. MAC users will see a fun, tiny elephant sitting in their top bar.
+Download PostgresApp[http://postgresapp.com/]. Postgres will always run and you won't need to start it on the command line everytime you start the server. To run PostgresApp, simply open it. MAC users will see a fun, tiny elephant sitting in their top bar.
 
 ==== Create the development, test and production databases
 Become the postgres user:  
@@ -167,7 +167,7 @@ This will start the server and run the application in development mode.
 
 Now open localhost:3000 in your browser and you should see the app. If everything works, you can do a little dance now.
 
-Database trouble? Don't forget to run your PostgresApp (http://postgresapp.com/). 
+Database trouble? Don't forget to run your PostgresApp[http://postgresapp.com/]. 
 
 == Testing
 
@@ -192,4 +192,4 @@ Rails 4.0.0
 
 == Maintenance
 
-The Rails Learners Directory was built by Nicole Fehlösi and Laura Wadden (@laurawadden) during the 2013 Rails Girls Summer of Code as part of Team Rails Grrls. Fehlösi and Wadden were coached by Duana Stanley, Deepak Jois, Oliver Hookins, Tobias Pfeiffer and Daniel Kehoe. To contact the owners, please message through github or tweet to @RailsGrrls.
+The Rails Learners Directory was built by Nicole Fehlösi and {Laura Wadden}[https://www.github.com/queenfrankie] during the 2013 Rails Girls Summer of Code as part of {Team Rails Grrls}[http://railsgrrls.tumblr.com]. Fehlösi and Wadden were coached by Duana Stanley, Deepak Jois, Oliver Hookins, Tobias Pfeiffer and Daniel Kehoe. To contact the owners, please message through github or tweet to @RailsGrrls[http://www.twitter.com/railsgrrls].
