@@ -5,7 +5,7 @@ The Rails Learners Directory is a crowdsourced directory of resources to learn p
 
 Unlike a Google search, the Rails Learners Directory is a curated, organized set of user-recommended resources. Students and coaches alike can browse by cost, topic, skill-level, and much more. Our goal is that ratings and reviews help students and coaches find resources appropriate for them.  
 
-The Learners Directory is a sub-project of RailsApps (http://www.railsapps.com) and was created by Laura Wadden and Nicole Felhösi during the 2013 Rails Girls Summer of Code (http://www.railsgirlssummerofcode.org). Many thanks to Duana Stanley, Deepak Jois, Tobias Pfeifer, Oliver Hookins and Daniel Kehoe for their coaching and support.  
+The Learners Directory was created by {Laura Wadden}[http://www.github.com/queenfrankie] and {Nicole Felhösi}[https://www.github.com/mokus80] during the 2013 {Rails Girls Summer of Code}[http://www.railsgirlssummerofcode.org]. Many thanks to {Duana Stanley}[https://www.github.com/starkcoffee], {Deepak Jois}[https://www.github.com/deepakjois], {Tobias Pfeifer}[https://www.github.com/pragtob], {Oliver Hookins}[https://www.github.com/ohookins] and {Daniel Kehoe}[https://www.github.com/danielkehoe] for their coaching and support.  
 
 == Features
 * User sign-in with GitHub and profile page
