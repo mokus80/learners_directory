@@ -1,3 +1,5 @@
+= Learners Directory {<img src="https://travis-ci.org/mokus80/learners_directory.png?branch=master" alt="Build Status" />}[https://travis-ci.org/mokus80/learners_directory]
+
 == About
 The Rails Learners Directory is a crowdsourced directory of resources to learn programming. It enables learners to find resources appropriate for them. The Learners Directory is for learners and coaches of all levels who are looking for user-recommended learning resources. Users can submit resources.
 
