@@ -187,4 +187,4 @@ Rails 4.0.0
 
 == Maintenance
 
-The Rails Learners Directory was built by Nicole Fehlösi and {Laura Wadden}[https://www.github.com/queenfrankie] during the 2013 Rails Girls Summer of Code as part of {Team Rails Grrls}[http://railsgrrls.tumblr.com]. Fehlösi and Wadden were coached by Duana Stanley, Deepak Jois, Oliver Hookins, Tobias Pfeiffer and Daniel Kehoe. To contact the owners, please message through github or tweet to @RailsGrrls[http://www.twitter.com/railsgrrls].
+The Rails Learners Directory was built by Nicole Felhösi and {Laura Wadden}[https://www.github.com/queenfrankie] during the 2013 Rails Girls Summer of Code as part of {Team Rails Grrls}[http://railsgrrls.tumblr.com]. Felhösi and Wadden were coached by Duana Stanley, Deepak Jois, Oliver Hookins, Tobias Pfeiffer and Daniel Kehoe. To contact the owners, please message through github or tweet to @RailsGrrls[http://www.twitter.com/railsgrrls].
