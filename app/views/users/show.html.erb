@@ -37,7 +37,7 @@
       <strong><%= "#{@user.ratings.count} Rating(s):" %></strong>
         <div class="user_activity_box">
           <% @user.ratings.each do |rating| %>
-            <p>- <%= link_to "Resource #{rating.resource_id}", resource_path(rating.resource_id) %><%= " has Rating #{rating.value}" %>  |  <%= link_to "Delete", rating_path(rating), :method => :delete, :class => 'action' %></p>
+            <p>- <%= link_to "#{rating.resource.title}", resource_path(rating.resource_id) %><%= " has Rating #{rating.value}" %>  |  <%= link_to "Delete", rating_path(rating), :method => :delete, :class => 'action' %></p>
           <% end %>
       </div>
 
