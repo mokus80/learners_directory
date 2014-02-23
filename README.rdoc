@@ -16,7 +16,6 @@ The Learners Directory was created by {Laura Wadden}[http://www.github.com/queen
 == Demo
 http://railsapps.herokuapp.com/
 
-Demo not working at the moment -- instead, clone the repository and run the rails server to see for yourself (see Installation).
 
 == Installation
 Install git[https://help.github.com/articles/set-up-git]. Not yet a regular git user? Try this {github overview}[http://ftp.newartisans.com/pub/git.from.bottom.up.pdf].
