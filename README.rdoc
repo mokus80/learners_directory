@@ -14,7 +14,7 @@ The Learners Directory was created by {Laura Wadden}[http://www.github.com/queen
 * Sort and browse resources by rating and tags
 
 == Demo
-http://railsapps.herokuapp.com/
+http://learnersdirectory.herokuapp.com/
 
 
 == Installation
