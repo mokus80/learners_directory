@@ -3,12 +3,10 @@ class RatingsController < ApplicationController
 
 	def create
 		@rating = Rating.new ratings_params
-		if @rating.save 
-			logger.info "in create"
-		else
-			logger.info "fail"
-		end
-		respond_to do |format|
+
+		if @rating.value
+			@rating.save 
+			respond_to do |format|
 			format.html { redirect_to resource_path(@resource), :notice => "Your rating has been saved" }
 			format.js
 		end

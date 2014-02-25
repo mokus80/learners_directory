@@ -24,14 +24,14 @@ class Resource < ActiveRecord::Base
 
 	def average_rating
 		if self.ratings.first.nil? == false
-			@value = 0
+			value = 0
 			self.ratings.each do |rating|
-				@value = @value + rating.value
+				value = value + rating.value
 			end
-			@total = self.ratings.size
-			@value.to_f / @total.to_f
+			total = self.ratings.size
+			value.to_f / total.to_f
 		else
-			@total = 0
+			total = 0
 		end
 	end
 
