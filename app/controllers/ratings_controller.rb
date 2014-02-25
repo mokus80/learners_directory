@@ -6,10 +6,10 @@ class RatingsController < ApplicationController
 
 		if @rating.value
 			@rating.save 
-			respond_to do |format|
-			format.html { redirect_to resource_path(@resource), :notice => "Your rating has been saved" }
-			format.js
-			end
+		end
+		respond_to do |format|
+		format.html { redirect_to resource_path(@resource), :notice => "Your rating has been saved" }
+		format.js
 		end
 	end
 
