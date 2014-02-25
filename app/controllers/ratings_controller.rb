@@ -9,6 +9,7 @@ class RatingsController < ApplicationController
 			respond_to do |format|
 			format.html { redirect_to resource_path(@resource), :notice => "Your rating has been saved" }
 			format.js
+			end
 		end
 	end
 
