@@ -7,13 +7,13 @@ class RatingsController < ApplicationController
 		if @rating.value
 			@rating.save
 			respond_to do |format|
-			format.html { redirect_to resource_path(@resource), :notice => "Your rating has been saved" }
-			format.js
+			# format.html { redirect_to resource_path(@resource), :notice => "Your rating has been saved" }
+			format.js {"window.location.pathname='#{resource_path(@resource).to_json}'", :notice => "Your rating has been saved" }
 			end 
 		else
 			respond_to do |format|
-			format.html { redirect_to resource_path(@resource), :notice => "Please select a rating" }
-			format.js
+			# format.html { redirect_to resource_path(@resource), :notice => "Please select a rating" }
+			format.js {"window.location.pathname='#{resource_path(@resource).to_json}'", :notice => "Please select a rating" }
 			end
 		end
 	end
