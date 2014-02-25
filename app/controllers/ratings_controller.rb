@@ -5,13 +5,16 @@ class RatingsController < ApplicationController
 		@rating = Rating.new ratings_params
 
 		if @rating.value
-			@rating.save 
+			@rating.save
+			respond_to do |format|
+			format.html { redirect_to resource_path(@resource), :notice => "Your rating has been saved" }
+			format.js
+			end 
 		else
-			flash[:notice] = "Please select a rating"
-		end
-		respond_to do |format|
-		format.html { redirect_to resource_path(@resource), :notice => "Your rating has been saved" }
-		format.js
+			respond_to do |format|
+			format.html { redirect_to resource_path(@resource), :notice => "Please select a rating" }
+			format.js
+			end
 		end
 	end
 
