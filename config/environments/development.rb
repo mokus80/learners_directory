@@ -27,5 +27,6 @@ LearnersDirectory::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-
+  # disable logging
+  config.log_level = :warn
 end
