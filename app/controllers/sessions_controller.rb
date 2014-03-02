@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController
 
   def create
-    user = User.find_or_create_by(:email => auth_hash[:info][:email], :name => auth_hash[:info][:login])
+    info = auth_hash[:info]
+    user = User.find_or_create_by(:email => info[:email], :name => info[:nickname])
     if user.nil?
     	redirect_to '/auth/:provider/callback'
     else
