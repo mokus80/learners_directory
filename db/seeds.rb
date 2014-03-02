@@ -15,10 +15,8 @@ Tag.create([
 	{name: 'Advanced'},
 	{name: 'Screencast'},
 	{name: 'Book'},
-	{name: 'Online'},
 	{name: 'Tutorial'},
 	{name: 'Course'},
-	{name: 'Website'},
 	{name: 'Paid'}, 
 	{name: 'Free'}
 ])

@@ -1,0 +1,1 @@
+ heroku run rake db:migrate db:seed tmp:sessions:clear
