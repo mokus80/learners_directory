@@ -9,6 +9,7 @@ LearnersDirectory::Application.routes.draw do
 
   resources :users 
 
+  resources :admin
 
   root :to => 'resources#index'
 
