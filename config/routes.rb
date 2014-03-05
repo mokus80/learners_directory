@@ -11,6 +11,8 @@ LearnersDirectory::Application.routes.draw do
 
   resources :admin
 
+  resources :tags, path: '/admin/tags'
+
   root :to => 'resources#index'
 
   resources :sessions, only: [:new, :show]
