@@ -11,7 +11,7 @@ LearnersDirectory::Application.routes.draw do
 
   resources :admin
 
-  resources :tags, path: '/admin/tags'
+  resources :tags
 
   root :to => 'resources#index'
 
