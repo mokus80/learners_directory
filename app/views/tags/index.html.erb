@@ -3,8 +3,8 @@
 <% @tags.each do |tag| %>
 	<tr>
   <td><span class="label label-info"><a href="<%= resources_path(:tag => tag.name) %>" class="tag"> <%= tag.name %></a></span></td>
-  <td><p>edit</p></td>
-  <td><%= link_to "Delete Tag", tag_path(tag), data: {confirm: 'Are you sure you want to delete this tag?'}, :method => :delete, :class => 'action' %></td> 
+  <td><%= link_to "Edit", edit_tag_path(tag)%></td>
+  <td><%= link_to "Delete", tag_path(tag), data: {confirm: 'Are you sure you want to delete this tag?'}, :method => :delete, :class => 'action' %></td> 
   </tr>
   <% end %>
  </table>
