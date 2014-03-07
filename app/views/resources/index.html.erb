@@ -1,10 +1,12 @@
 <h2>Welcome</h2>
+<div class="tag-list">
 <h4>Find and rate resources for learning Rails: 
 <% @tags.each do |tag| %>
       <span class="label label-info"><a href="<%= resources_path(:tag => tag.name) %>" class="tag"> <%= tag.name %></a></span>
       <% end %>
 
 </h4>
+</div>
 
   <br>
   <tbody>
