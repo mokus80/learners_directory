@@ -1,10 +1,9 @@
-<h2>Welcome</h2>
+<h2>Find and rate resources for learning programming with Ruby</h2>
+<br>
 <div class="tag-list">
-<h4>Find and rate resources for learning Rails: 
-<% @tags.each do |tag| %>
+<h4>Filter by category:<% @tags.each do |tag| %>
       <span class="label label-info"><a href="<%= resources_path(:tag => tag.name) %>" class="tag"> <%= tag.name %></a></span>
       <% end %>
-
 </h4>
 </div>
 
