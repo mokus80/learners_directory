@@ -14,5 +14,5 @@ class Comment < ActiveRecord::Base
 	belongs_to :resource
 	belongs_to :user
 
-	validates :body,  presence: true, length: { maximum: 500, message: "Text can't be blank" }
+	validates_presence_of :body, message: "Text can't be blank" , length: { maximum: 500 }
 end
