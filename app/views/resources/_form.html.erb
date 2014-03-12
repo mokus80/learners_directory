@@ -15,23 +15,18 @@
     <%= f.text_field :link %>
   </div>
 
-  <ul>
-    <li>
-      <% @tags.each do |tag| %>
-      <div class="myCheckbox">
-        <%= check_box_tag 'resource[tag_names][]', tag.name, (@resource.tags.any? { |t|
-            t.name == tag.name}), :class => "checkbox" %>
-      <div class="tag-label"><%= tag.name %></div> 
-      </div>
-      
+  
+  <h4>Select categories:</h4>
+  <% @tags.each do |tag| %>
+    <div class="myCheckbox">
+      <%= check_box_tag 'resource[tag_names][]', tag.name, (@resource.tags.any? { |t|
+          t.name == tag.name}), :class => "checkbox" %>
+    <div class="tag-label"><%= tag.name %></div> 
+    </div>
 
-      <!-- doesnt take input yet -->
-      <%#= button_tag tag.name, :class => "label label-info tag", :type => "submit" %>
-      <% end %>
-
-    </li>
-  </ul>
-    
+    <% end %>
+  <br>
+  <br>
   <div class="actions">
     <%= f.submit %>
   </div>
