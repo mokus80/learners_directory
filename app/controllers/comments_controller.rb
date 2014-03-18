@@ -33,6 +33,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.resource_id = params[:resource_id]
+    @resource = Resource.find(params[:resource_id])
     if signed_in?
       @comment.user_id = current_user.id
       if @comment.save
@@ -41,7 +42,10 @@ class CommentsController < ApplicationController
           format.js
         end
       else
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
+        respond_to do |format|
+          format.html { render action: 'new' }
+        end
+        #format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     else
       respond_to do |format|

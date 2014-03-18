@@ -26,6 +26,7 @@ class ResourcesController < ApplicationController
   # GET /resources/1.json
   def show
     @comments = Comment.all
+    @comment = Comment.new
   end
 
   # GET /resources/new
