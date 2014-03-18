@@ -35,10 +35,13 @@ class CommentsController < ApplicationController
     @comment.resource_id = params[:resource_id]
     if signed_in?
       @comment.user_id = current_user.id
-      @comment.save
-      respond_to do |format|
-        format.html { redirect_to resource_path(@comment.resource_id), :notice => "Your comment has been saved" }
-        format.js
+      if @comment.save
+        respond_to do |format|
+          format.html { redirect_to resource_path(@comment.resource_id), :notice => "Your comment has been saved" }
+          format.js
+        end
+      else
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     else
       respond_to do |format|
