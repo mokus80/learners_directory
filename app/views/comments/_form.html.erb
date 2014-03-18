@@ -1,6 +1,6 @@
 <%= form_for([@resource, @resource.comments.build]) do |f| %>
 
-<%= render 'layouts/error_messages' %>
+<%= render 'layouts/comments_error_messages' %>
  
   <div class="field">
     <% f.label :body %><br />

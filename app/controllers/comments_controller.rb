@@ -44,8 +44,8 @@ class CommentsController < ApplicationController
       else
         respond_to do |format|
           format.html { render action: 'new' }
+          format.json { render json: @comment.errors, status: :unprocessable_entity }
         end
-        #format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     else
       respond_to do |format|
