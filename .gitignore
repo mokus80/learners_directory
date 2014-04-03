@@ -19,3 +19,6 @@
 # Ignore the .env file
 /.env
 /config/github.yml
+
+# Ignore public assets
+/public/assets/**
