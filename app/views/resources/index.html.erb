@@ -30,8 +30,12 @@
               <%= link_to "#{resource.comments.count} Comments", resource_path(resource.id) + '#comments' %>
             <% end %>  | 
 
-            Posted by <%= link_to "#{resource.user.name}", user_path(resource.user) %> on <%= resource.created_at.strftime("%B %d, %Y") %>  
-
+            <% if admin %>
+              Posted by Editor on <%= resource.created_at.strftime("%B %d, %Y") %>
+            <% else %>
+              Posted by <%= link_to "#{resource.user.name}", user_path(resource.user) %> on <%= resource.created_at.strftime("%B %d, %Y") %>
+            <% end %>
+        
             <% if correct_user?(resource) %>
               <%= link_to "Delete", resource_path(resource), :method => :delete, :class => 'action delete-resource' %> <%= link_to "Edit", edit_resource_path(resource) %>
             <% end %>

@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     	redirect_to '/auth/:provider/callback'
     else
     	sign_in user
-    	redirect_to root_path, :notice => "Signed in!"
+    	redirect_to '/', :notice => "Signed in!"
  	  end
   end
 
