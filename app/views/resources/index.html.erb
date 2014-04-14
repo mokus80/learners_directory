@@ -30,7 +30,7 @@
               <%= link_to "#{resource.comments.count} Comments", resource_path(resource.id) + '#comments' %>
             <% end %>  | 
 
-            <% if admin %>
+            <% if resource.user.admin == true %>
               Posted by Editor on <%= resource.created_at.strftime("%B %d, %Y") %>
             <% else %>
               Posted by <%= link_to "#{resource.user.name}", user_path(resource.user) %> on <%= resource.created_at.strftime("%B %d, %Y") %>
