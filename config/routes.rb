@@ -22,6 +22,7 @@ LearnersDirectory::Application.routes.draw do
 
     match '/signout', to: 'sessions#destroy', via: 'delete'
 
+  mount API::V1 => '/'
   #get   '/login', :to => 'sessions#new', :as => :login
   #match '/auth/:provider/callback', :to => 'sessions#create'
   #match '/auth/failure', :to => 'sessions#failure'
